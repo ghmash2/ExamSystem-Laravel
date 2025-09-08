@@ -11,7 +11,7 @@ class ExamRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,12 +24,12 @@ class ExamRequest extends FormRequest
         return [
         'title' => '',
         'tagline' => '',
-        'exam_date' => '',
+        'exam_date' => 'date',
         'exam_start_time' => '',
         'exam_end_time' => '',
         'instruction' => '',
-        'full_mark' => '',
-        'duration' => '',
+        'full_mark' => 'integer',
+        'duration' => 'integer',
         'can_view_result' => '',
         'is_question_random' => '',
         'is_option_random' => '',

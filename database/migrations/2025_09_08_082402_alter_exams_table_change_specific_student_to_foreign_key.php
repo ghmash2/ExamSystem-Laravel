@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('exams', function (Blueprint $table) {
             $table->unsignedBigInteger('is_specific_student')->nullable()->change();
+            $table->integer('duration')->nullable()->change();
             $table->foreign('is_specific_student')->references('id')->on('users');
         });
     }

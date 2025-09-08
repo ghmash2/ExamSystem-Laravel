@@ -91,7 +91,7 @@
 
                             <div class="mb-3">
                                 <label for="full_mark" class="form-label">{{ 'full_mark' }}</label>
-                                <input type="number" class="form-control @error('full_mark') is-invalid @enderror"
+                                <input type="integer" class="form-control @error('full_mark') is-invalid @enderror"
                                     id="full_mark" name="full_mark" value="{{ old('full_mark', $exam->full_mark ?? '') }}">
                                 @error('full_mark')
                                     <span class="invalid-feedback" role="alert">
@@ -101,7 +101,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="duration" class="form-label">{{ 'Duration(second)' }}</label>
-                                <input type="number" class="form-control @error('duration') is-invalid @enderror"
+                                <input type="integer" class="form-control @error('duration') is-invalid @enderror"
                                     id="duration" name="duration" value="{{ old('duration', $exam->duration ?? '') }}">
                                 @error('duration')
                                     <span class="invalid-feedback" role="alert">
