@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Hash;
-use Illuminate\Container\Attributes\Storage;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -24,7 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('users.create'); //create form
     }
 
     /**
@@ -33,13 +32,17 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $request->validated();
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('public/images');
+        } else
+            $imagePath = null;
         User::create([
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
             'contact' => $request->contact,
             'password' => $request->password,
-            'image' => $request->image
+            'image' => $imagePath
 
         ]);
 
@@ -65,31 +68,27 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
-        $request->validated();
+        $validated = $request->validated();
+
         if ($request->hasFile('image')) {
-            // if ($user->image) {
-            //     Storage::disk('public')->delete($user->image);
-            // }
-            // $request['image'] = $request->file('image')->store('user_images', 'public');
+            if ($user->image) {
+                Storage::disk('public')->delete($user->image);
+            }
+            $imagePath = $request->file('image')->store('uploads/images', 'public');
+            $user->image = $imagePath;
         }
         if ($request->filled('password')) {
-            $user->password = Hash::make($request['password']);
-        } else {
-            unset($request['password']);
+            $user->password = Hash::make($validated['password']);
         }
-        $user->update(
-            [
-                'name' => $request->name,
-                'username' => $request->username,
-                'email' => $request->email,
-                'contact' => $request->contact,
-                'password' => $request->password,
-                'image' => $request->image
-            ]
-        );
-        return redirect()->route('users.index')->with('success', 'User updated Successfully!');
+        $user->name = $validated['name'];
+        $user->username = $validated['username'];
+        $user->email = $validated['email'];
+        $user->contact = $validated['contact'];
+        $user->save();
+
+        return redirect()->route('users.index', $user)->with('success', 'User updated Successfully!');
     }
 
     /**

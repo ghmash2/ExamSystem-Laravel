@@ -29,7 +29,7 @@ return new class extends Migration {
             $table->tinyInteger('is_signin_required')->default(0);
             $table->tinyInteger('is_specific_student')->default(0);
             $table->timestamps();
-            
+
             $table->foreign('category_id')->references('id')->on('categories');
         });
     }

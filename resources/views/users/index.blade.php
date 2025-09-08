@@ -26,7 +26,7 @@
                             <td>{{ $user->contact }}</td>
                             <td>{{ $user->image }}</td>
                             <td>{{ $user->updated_at }}</td>
-                            <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-primary">Edit</a>
+                            <td><a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-primary">Edit</a></td>
                         </tr>
                     @endforeach
                 </tbody>
