@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\QuestionRequest;
+use App\Models\Exam;
 use App\Models\Question;
 use Illuminate\Http\Request;
 
@@ -20,15 +22,22 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        return view('questions.create');
+        $exams = Exam::all();
+        return view('questions.create', compact('exams'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(QuestionRequest $request)
     {
-        //
+        $request->validated();
+        Question::create([
+            'title' => $request['title'],
+            'question_type' => $request['question_type'],
+            'exam_id' => $request['exam_id']
+        ]);
+     return redirect()->route('options.create')->with('success', 'Successfully added Question');
     }
 
     /**

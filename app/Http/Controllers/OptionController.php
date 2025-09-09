@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Exam;
 use App\Models\Option;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
 class OptionController extends Controller
@@ -20,7 +22,9 @@ class OptionController extends Controller
      */
     public function create()
     {
-        //
+        $exams = Exam::all();
+        $questions = Question::all();
+        return view('options.create', compact('exams', 'questions'));
     }
 
     /**
@@ -28,7 +32,13 @@ class OptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $request->validated();
+        Option::create([
+            'title' => $request['title'],
+            'is_correct' => $request['is_correct'],
+            'question_id' => $request['question_id']
+        ]);
+     return redirect()->route('options.create')->with('success', 'Successfully added Question');
     }
 
     /**

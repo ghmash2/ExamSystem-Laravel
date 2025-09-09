@@ -44,17 +44,25 @@
                                     </span>
                                 @enderror
                             </div>
-
                             <div class="mb-3">
-                                <label for="contact" class="form-label">{{ 'Contact Number' }}</label>
-                                <input type="text" class="form-control @error('contact') is-invalid @enderror"
-                                    id="contact" name="contact" value="{{ old('contact', $question->contact ?? '') }}">
-                                @error('contact')
+                                <label for="exam_id" class="form-label">{{ 'Select Exam' }}</label>
+                                <select class="form-select @error('exam_id') is-invalid @enderror" id="exam_id"
+                                    name="exam_id">
+                                    <option value="">Select an Exam</option>
+                                    @foreach ($exams as $exam)
+                                        <option value="{{ $exam->id }}" @selected(old('exam_id', $question->exam_id ?? null) == $exam->id)>
+                                            {{ $exam->title }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('exam_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
+
+
 
                             <button type="submit" class="btn btn-primary">
                                 {{ isset($question) ? 'Update question' : 'Create question' }}
