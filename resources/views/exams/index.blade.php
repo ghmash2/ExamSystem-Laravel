@@ -1,4 +1,9 @@
-@extends('exams.layout')
+@extends('layouts.layout')
+
+@section('topbar')
+    @extends('components.topbar')
+@endsection
+
 @section('content')
     <div>
         <h2>All Exams</h2>
@@ -37,6 +42,7 @@
                         <td>{{ $exam->is_option_random }}</td>
                         <td>{{ $exam->is_signin_required }}</td>
                         <td>{{ $exam->is_specific_student }}</td>
+                        {{-- <td><a href="{{ route('exams.edit', $exam) }}" class="btn btn-sm btn-primary">Start</a></td> --}}
                         <td><a href="{{ route('exams.edit', $exam) }}" class="btn btn-sm btn-primary">Edit</a></td>
                     </tr>
                 @endforeach

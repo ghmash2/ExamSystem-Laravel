@@ -1,0 +1,6 @@
+    @if (Auth::check())
+      <a href="/logout">Logout</a>
+    @else
+       <a href="/login">Login</a>
+       <a href="/register">Register</a>
+    @endif

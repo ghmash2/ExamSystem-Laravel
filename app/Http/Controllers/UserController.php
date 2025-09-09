@@ -46,7 +46,7 @@ class UserController extends Controller
 
         ]);
 
-        return redirect()->route('users.index')->with('success', 'User created Successfully!');
+        return redirect('/login')->with('success', 'User created Successfully!');
     }
 
     /**

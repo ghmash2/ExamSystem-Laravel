@@ -1,4 +1,4 @@
-@extends('users.layout')
+@extends('layouts.layout')
 @section('content')
 <div>
     <h2>All Users</h2>
