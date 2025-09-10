@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Option extends Model
 {
-    //
+     protected $table='options';
+    protected $fillable = [
+     'title',
+     'is_correct',
+     'question_id'
+    ];
+    protected $hidden = [
+
+    ];
 }

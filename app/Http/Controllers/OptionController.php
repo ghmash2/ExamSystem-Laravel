@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OptionRequest;
 use App\Models\Exam;
 use App\Models\Option;
 use App\Models\Question;
@@ -30,7 +31,7 @@ class OptionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(OptionRequest $request)
     {
        $request->validated();
         Option::create([
@@ -54,15 +55,21 @@ class OptionController extends Controller
      */
     public function edit(Option $option)
     {
-        //
+        return view('options.create', compact('questions'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Option $option)
+    public function update(OptionRequest $request, Option $option)
     {
-        //
+         $validated = $request->validated();
+         $option->title = $validated['title'];
+         $option->is_correct = $validated['is_correct'];
+         $option->question_id = $validated['question_id'];
+         $option->save();
+
+         return redirect()->route('options.index')->with('success', 'Option Update Successful');
     }
 
     /**

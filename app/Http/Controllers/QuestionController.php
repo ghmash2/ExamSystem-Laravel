@@ -53,15 +53,21 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+       return view('questions.create', compact('question'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Question $question)
+    public function update(QuestionRequest $request, Question $question)
     {
-        //
+       $validated = $request->validated();
+       $question->title = $validated['title'];
+       $question->question_type = $validated['question_type'];
+       $question->exam_id = $validated['exam_id'];
+       $question->status = $validated['status'];
+       $question->save();
+       return redirect()->route('questions.index')->with('success', 'Question Updated Successfully');
     }
 
     /**

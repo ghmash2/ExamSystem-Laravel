@@ -50,11 +50,11 @@
                                 @enderror
                             </div>
 
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label for="exam_id" class="form-label">{{ 'Select Exam' }}</label>
                                 <select class="form-select @error('exam_id') is-invalid @enderror" id="exam_id"
                                     name="exam_id">
-                                    <option value="">Select an Exam</option>
+
                                     @foreach ($exams as $exam)
                                         <option value="{{ $exam->id }}" @selected(old('exam_id', $option->exam_id ?? null) == $exam->id)>
                                             {{ $exam->title }}
@@ -66,7 +66,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </div> --}}
                             <div class="mb-3">
                                 <label for="question_id" class="form-label">{{ 'Select question' }}</label>
                                 <select class="form-select @error('question_id') is-invalid @enderror" id="question_id"
