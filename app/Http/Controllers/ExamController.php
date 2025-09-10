@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ExamRequest;
 use App\Models\Exam;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
 class ExamController extends Controller
@@ -55,7 +56,9 @@ class ExamController extends Controller
      */
     public function show(Exam $exam)
     {
-        //
+        $exam_id = $exam->id;
+        $questions = Question::where('exam_id', $exam_id)->with('options')->get();
+        return view('exams.show', compact('questions', 'exam'));
     }
 
     /**
@@ -97,5 +100,10 @@ class ExamController extends Controller
     {
         Exam::delete();
         return redirect('exams.index')->with('success', 'Exam Deleted Successfuly');
+    }
+
+    public function submit(Request $request, $id)
+    {
+
     }
 }

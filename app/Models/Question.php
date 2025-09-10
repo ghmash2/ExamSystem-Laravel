@@ -16,5 +16,13 @@ class Question extends Model
     protected $hidden = [
 
     ];
+    public function exam()
+    {
+        return $this->belongsTo(Exam::class);
+    }
+    public function options()
+    {
+        return $this->hasMany(Option::class);
+    }
 
 }

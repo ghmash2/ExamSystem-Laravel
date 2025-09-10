@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\ExamLauncher;
@@ -13,11 +12,14 @@ Route::get('/', [ExamController::class, 'index']);
 Route::get('register', [AuthController::class, 'register']);
 Route::get('login', [AuthController::class, 'showLogin']);
 Route::post('login', [AuthController::class, 'login'])->name('login');
-Route::get('logout', [AuthController::class,'logout']);
+Route::get('logout', [AuthController::class, 'logout']);
 
 Route::resource('users', UserController::class);
-Route::resource('exams', ExamController::class);
 Route::resource('questions', QuestionController::class);
 Route::resource('options', OptionController::class);
-Route::resource('exam_launch', ExamLauncher::class);
+Route::resource('exams', ExamController::class)->except(['show']);
 
+Route::middleware(['prevent.navigation'])->group(function () {
+    Route::resource('exams', ExamController::class)->only(['show']);
+    Route::post('/exam/submit', [ExamController::class, 'submit'])->name('exam.submit');
+});

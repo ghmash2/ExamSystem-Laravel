@@ -15,4 +15,9 @@ class Option extends Model
     protected $hidden = [
 
     ];
+
+    public function question()
+    {
+        return $this->belongsTo(Question::class);
+    }
 }
