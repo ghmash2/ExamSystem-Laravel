@@ -22,6 +22,9 @@ class ApiResponseClass
     }
 
     public static function sendResponse($result , $message ,$code=200){
+        //  if ($result instanceof ResourceCollection) {
+        // $result = $result->toArray(request());}
+
         $response=[
             'success' => true,
             'data'    => $result

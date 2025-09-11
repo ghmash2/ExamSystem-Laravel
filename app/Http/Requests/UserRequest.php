@@ -24,7 +24,7 @@ class UserRequest extends FormRequest
         return [
             'name' => 'required | min:1',
             'username' => 'required | min:1 | alpha_dash:ascii',
-            'contact' => 'required | min:1 | max:14',
+            'contact' => 'required | min:1 | max:18',
             'email' => 'required | min:11',
             'password' => 'required | min:3 | max:15',
             'password_confirmation' => 'required | same:password',

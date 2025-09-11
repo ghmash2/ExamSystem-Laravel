@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\ApiResponseClass;
 use App\Http\Requests\UserRequest;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Hash;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +17,13 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('users.index', compact('users'));
+
+        return ApiResponseClass:: sendResponse(UserResource::collection($users), 'User List', 200);
+        // return response()->json([
+        //     'success' => true,
+        //     'data' => $users,
+        //     'message' => 'User List'
+        // ], 200);
     }
 
     /**
@@ -23,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create'); //create form
+        //return view('users.create'); //create form
     }
 
     /**
@@ -31,28 +39,21 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $request->validated();
+        $validated = $request->validated();
+
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/images');
-        } else
-            $imagePath = null;
-        User::create([
-            'name' => $request->name,
-            'username' => $request->username,
-            'email' => $request->email,
-            'contact' => $request->contact,
-            'password' => $request->password,
-            'image' => $imagePath
+            $imagePath = $request->file('image')->store('images', 'public');
+             $validated['image'] = $imagePath;
+        }
 
-        ]);
-
-        return redirect('/login')->with('success', 'User created Successfully!');
+        $user = User::create($validated);
+        return ApiResponseClass::sendResponse(new UserResource($user), 'User created', 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show($user_)
     {
 
     }
@@ -62,7 +63,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.create', compact('user'));
+        //return view('users.create', compact('user'));
     }
 
     /**
