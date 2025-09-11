@@ -17,9 +17,10 @@ Route::get('logout', [AuthController::class, 'logout']);
 Route::resource('users', UserController::class);
 Route::resource('questions', QuestionController::class);
 Route::resource('options', OptionController::class);
-Route::resource('exams', ExamController::class)->except(['show']);
+// Route::resource('exams', ExamController::class)->except(['show']);
+// Route::get('exams/{exam}', [ExamController::class, 'start']);
 
-Route::middleware(['prevent.navigation'])->group(function () {
-    Route::resource('exams', ExamController::class)->only(['show']);
-    Route::post('/exam/submit', [ExamController::class, 'submit'])->name('exam.submit');
-});
+// Route::middleware(['prevent.navigation'])->group(function () {
+//     Route::resource('exams', ExamController::class)->only(['show']);
+//     Route::post('exam/submit', [ExamController::class, 'submit'])->name('exam.submit');
+// });

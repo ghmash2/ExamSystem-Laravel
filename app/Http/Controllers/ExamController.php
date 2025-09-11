@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\ApiResponseClass;
 use App\Http\Requests\ExamRequest;
+use App\Http\Resources\ExamResource;
 use App\Models\Exam;
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Session;
 
 class ExamController extends Controller
 {
@@ -15,7 +18,8 @@ class ExamController extends Controller
     public function index()
     {
         $exams = Exam::all();
-        return view('exams.index', compact('exams'));
+        // return view('exams.index', compact('exams'));
+        return ApiResponseClass::sendResponse(ExamResource::collection($exams),'All Exam List',200);
     }
 
     /**
@@ -102,6 +106,11 @@ class ExamController extends Controller
         return redirect('exams.index')->with('success', 'Exam Deleted Successfuly');
     }
 
+    public function start(Exam $exam)
+    {
+         Session::put('exam_running', $exam->id);
+         return redirect()->route('exams.show', $exam);
+    }
     public function submit(Request $request, $id)
     {
 

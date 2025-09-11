@@ -16,9 +16,16 @@ class PreventExamNavigation
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Session::has('exam_status' && (!$request->is('exam/*') || !$request->is('exams/+'))))
+        if(Session::has('exam_running'))
         {
-            return redirect()->route('exams.show', Session::get('exam_id'));
+            $exam_id = Session::get('exam_running');
+            $allowedRoutes = [
+                'exams.show',
+                'exam.submit',
+            ];
+              if (!in_array($request->route()->getName(), $allowedRoutes)) {
+                return redirect()->route('exams.show', $exam_id);
+            }
         }
 
         return $next($request);
