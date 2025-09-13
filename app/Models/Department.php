@@ -13,4 +13,9 @@ class Department extends Model
     protected $hidden = [
 
     ];
+    public function students()
+    {
+        return $this->hasMany(Student::class);
+    }
+
 }

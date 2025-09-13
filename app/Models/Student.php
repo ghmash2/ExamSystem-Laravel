@@ -14,4 +14,9 @@ class Student extends Model
     protected $hidden = [
 
     ];
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
 }
