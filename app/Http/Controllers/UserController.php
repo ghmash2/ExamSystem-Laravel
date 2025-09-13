@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ApiResponseClass;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Hash;
@@ -18,7 +19,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return ApiResponseClass:: sendResponse(UserResource::collection($users), 'User List', 200);
+        return ApiResponseClass::sendResponse(UserResource::collection($users), 'User List', 200);
         // return response()->json([
         //     'success' => true,
         //     'data' => $users,
@@ -43,7 +44,7 @@ class UserController extends Controller
 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images', 'public');
-             $validated['image'] = $imagePath;
+            $validated['image'] = $imagePath;
         }
 
         $user = User::create($validated);
@@ -69,35 +70,40 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserRequest $request, User $user)
+    public function update(UserUpdateRequest $request, $user_id)
     {
         $validated = $request->validated();
+
+        $user = User::findOrFail($user_id);
+
 
         if ($request->hasFile('image')) {
             if ($user->image) {
                 Storage::disk('public')->delete($user->image);
             }
-            $imagePath = $request->file('image')->store('uploads/images', 'public');
-            $user->image = $imagePath;
-        }
-        if ($request->filled('password')) {
-            $user->password = Hash::make($validated['password']);
-        }
-        $user->name = $validated['name'];
-        $user->username = $validated['username'];
-        $user->email = $validated['email'];
-        $user->contact = $validated['contact'];
-        $user->save();
+            $imagePath = $request->file('image')->store('images', 'public');
+            $validated['image'] = $imagePath;
 
-        return redirect()->route('users.index', $user)->with('success', 'User updated Successfully!');
+        }
+
+        if ($request->filled('password')) {
+            $validated['password'] = Hash::make($validated['password']);
+        }
+        $user->update($validated);
+        $user->refresh();
+        return ApiResponseClass::sendResponse(new UserResource($user), 'User Updated', 201);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy($user_id)
     {
-        User::delete();
-        return redirect()->route('users.index')->with('success', 'User Deleted Successfully!');
+        $user = User::findOrFail($user_id);
+        if ($user->image) {
+            Storage::disk('public')->delete($user->image);
+        }
+        $user->delete();
+        return ApiResponseClass::sendResponse(new UserResource($user), 'User Deleted', 200);
     }
 }

@@ -18,10 +18,10 @@ class UserResource extends JsonResource
         'name' => $this->name,
         'email' => $this->email,
         'password' => $this->password,
-        'password_confirmation' => $this->password_confirmation,
+        // 'password_confirmation' => $this->password_confirmation,
         'contact' => $this->contact,
         'username' => $this->username,
-        'image' => $this->image
+        'image' => asset('storage/' . $this->image)
        ];
     }
 }

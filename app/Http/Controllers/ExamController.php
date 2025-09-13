@@ -81,10 +81,11 @@ class ExamController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Exam $exam)
+    public function destroy( $exam_id)
     {
-        Exam::delete();
-        return redirect('exams.index')->with('success', 'Exam Deleted Successfuly');
+        $exam = Exam::findOrFail($exam_id);
+        $exam->delete();
+        return ApiResponseClass::sendResponse(new ExamResource($exam), 'Exam Deleted', 200);
     }
 
     public function start(Exam $exam)

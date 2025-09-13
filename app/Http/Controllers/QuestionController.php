@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ApiResponseClass;
 use App\Http\Requests\QuestionRequest;
 use App\Models\Exam;
 use App\Models\Question;
@@ -22,8 +23,8 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $exams = Exam::all();
-        return view('questions.create', compact('exams'));
+        // $exams = Exam::all();
+        // return view('questions.create', compact('exams'));
     }
 
     /**
@@ -31,13 +32,9 @@ class QuestionController extends Controller
      */
     public function store(QuestionRequest $request)
     {
-        $request->validated();
-        Question::create([
-            'title' => $request['title'],
-            'question_type' => $request['question_type'],
-            'exam_id' => $request['exam_id']
-        ]);
-     return redirect()->route('options.create')->with('success', 'Successfully added Question');
+        // $validated = $request->validated();
+        // $question = Question::create($validated)
+        // return ApiResponseClass::sendResponse(new );
     }
 
     /**
