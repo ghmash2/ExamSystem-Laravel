@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('question_type')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
-            
+
             $table->foreign('exam_id')->references('id')->on('exams');
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('questions');
+        //Schema::dropIfExists('questions');
     }
 };

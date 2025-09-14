@@ -16,7 +16,7 @@ class OptionResource extends JsonResource
     {
         return [
             'title' => $this->title,
-            //'is_correct' => $this->is_correct,
+            'is_correct' => $this->when(!$request->routeIs('exam.luanch'), 'is_correct'),
             'question_id' => $this->question_id
         ];
     }

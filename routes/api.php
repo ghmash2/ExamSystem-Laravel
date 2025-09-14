@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreateExamController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\LauchExamController;
@@ -24,4 +25,5 @@ Route::apiResource('/options', OptionController::class);
 Route::apiResource('/departments', DepartmentController::class);
 Route::apiResource('/students', StudentController::class);
 
-Route::get('/exams/{exam}/launch', [LauchExamController::class, 'launch']);
+Route::get('/exams/{exam}/launch', [LauchExamController::class, 'launch'])->name('exam.luanch');
+Route::post('/exams/add', [CreateExamController::class, 'store']);

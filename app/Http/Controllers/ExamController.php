@@ -37,15 +37,8 @@ class ExamController extends Controller
     public function store(ExamRequest $request)
     {
         $validated = $request->validated();
-
         $exam = Exam::create($validated);
-
-        // return response()->json([
-        //     'message' => 'Exam created successfully.',
-        //     'data' => $exam,
-        // ], Response::HTTP_CREATED);
         return ApiResponseClass::sendResponse(new ExamResource($exam), 'Product Create Successful', 201);
-
     }
 
     /**
