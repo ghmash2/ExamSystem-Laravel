@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\LauchExamController;
 use App\Http\Controllers\OptionController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\StudentController;
@@ -22,3 +23,5 @@ Route::apiResource('/questions', QuestionController::class);
 Route::apiResource('/options', OptionController::class);
 Route::apiResource('/departments', DepartmentController::class);
 Route::apiResource('/students', StudentController::class);
+
+Route::get('/exams/{exam}/launch', [LauchExamController::class, 'launch']);

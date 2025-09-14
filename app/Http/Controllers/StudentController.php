@@ -41,16 +41,21 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $student)
+    public function update(StudentRequest $request, $id)
     {
-        //
+        $student = Student::findOrFail($id);
+        $validated = $request->validated();
+        $student->update($validated);
+        return ApiResponseClass::sendResponse(new StudentResource($student), 'Student Updated', 201);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Student $student)
+    public function destroy($id)
     {
-        //
+        $student = Student::findOrFail($id);
+        $student->delete();
+        return ApiResponseClass::sendResponse(new StudentResource($student), 'Student Deleted', 201);
     }
 }

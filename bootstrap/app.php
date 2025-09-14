@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\PreventExamNavigation;
+use App\Http\Middleware\RequestToJson;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -14,8 +15,11 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
-            'prevent.navigation' => PreventExamNavigation::class
+            'prevent.navigation' => PreventExamNavigation::class,
         ]);
+
+        $middleware->api([PreventExamNavigation::class, ]);
+        $middleware->api(RequestToJson::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

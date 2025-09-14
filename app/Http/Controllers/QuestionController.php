@@ -74,4 +74,9 @@ class QuestionController extends Controller
     {
         //
     }
+    public function getQuestionByExam($id)
+    {
+        $questions = Question::where('exam_id', $id)->get();
+        return $questions;
+    }
 }

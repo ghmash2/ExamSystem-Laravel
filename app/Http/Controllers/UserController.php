@@ -54,9 +54,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($user_)
+    public function show($user_id)
     {
-
+       $user = User::findOrFail($user_id);
+       return ApiResponseClass::sendResponse(new UserResource($user), 'Single User', 200);
     }
 
     /**

@@ -27,7 +27,7 @@ class ExamResource extends JsonResource
         'is_question_random' => $this->is_question_random,
         'is_option_random' =>  $this->is_option_random,
         'is_signin_required' => $this->is_signin_required,
-        'is_specific_student' =>  $this->is_specific_student
+        'is_specific_student' =>  $this->is_specific_student,
         ];
     }
 }

@@ -79,4 +79,9 @@ class OptionController extends Controller
     {
         //
     }
+    public function getOptionByQuestion($id)
+    {
+        $options = Option::where('question_id', $id)->get();
+        return $options;
+    }
 }

@@ -23,7 +23,8 @@ class StudentRequest extends FormRequest
     {
         return [
            'name' => 'required|min:1',
-           'id_no' => 'required | min:1'
+           'id_no' => 'required | min:1',
+           'department_id' => ''
         ];
     }
 }
