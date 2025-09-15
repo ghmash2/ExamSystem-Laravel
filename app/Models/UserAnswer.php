@@ -16,4 +16,9 @@ class UserAnswer extends Model
          'not_answered',
          'status'
     ];
+
+    public function answer_options()
+    {
+        return $this->hasMany(AnswerOption::class,'answer_id');
+    }
 }

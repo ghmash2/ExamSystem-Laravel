@@ -14,4 +14,8 @@ class AnswerOption extends Model
          'solution',
          'answer_at'
     ];
+    public function user_answer()
+    {
+        return $this->belongsTo(UserAnswer::class);
+    }
 }

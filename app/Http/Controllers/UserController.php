@@ -107,4 +107,5 @@ class UserController extends Controller
         $user->delete();
         return ApiResponseClass::sendResponse(new UserResource($user), 'User Deleted', 200);
     }
+
 }

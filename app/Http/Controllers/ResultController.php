@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\ApiResponseClass;
+use App\Http\Resources\ResultResource;
 use App\Models\AnswerOption;
 use App\Models\Exam;
 use App\Models\UserAnswer;
@@ -63,7 +65,8 @@ class ResultController extends Controller
          $user_answer->not_answered = $notAnswered;
          $user_answer->correct_answer = $userScore;
          $user_answer->save();
+         $result = UserAnswer::with( 'answer_options')->findOrFail($user_answer->id);
 
-        
+       return ApiResponseClass::sendResponse($result, 'Result of Exam', 200);
     }
 }
