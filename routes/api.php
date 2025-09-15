@@ -6,6 +6,7 @@ use App\Http\Controllers\ExamController;
 use App\Http\Controllers\LauchExamController;
 use App\Http\Controllers\OptionController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ResultController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 
@@ -26,4 +27,9 @@ Route::apiResource('/departments', DepartmentController::class);
 Route::apiResource('/students', StudentController::class);
 
 Route::get('/exams/{exam}/launch', [LauchExamController::class, 'launch'])->name('exam.luanch');
+Route::post('/exams/{exam}/submit', [ResultController::class, 'evaluate'])->name('exam.submit');
 Route::post('/exams/add', [CreateExamController::class, 'store']);
+
+// /exam/{exam}/submit  ---> POST evalute return result as response
+// /users/{user}/exams  ----> GET all exams of a user
+// /user/{user}/exams/{exam} ----> GET details of specific exam by specific user

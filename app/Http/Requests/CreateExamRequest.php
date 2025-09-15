@@ -22,30 +22,26 @@ class CreateExamRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'exams.title' => ['required', 'string'],
-            // 'exams.duration' => ['required', 'integer'],
-            'title' => 'min:1',
-            'tagline' => 'min:1',
+            'title' => 'required|string|max:255',
+            'tagline' => 'nullable|string|max:255',
             'exam_date' => 'date',
-            'exam_start_time' => '',
-            'exam_end_time' => '',
-            'instruction' => 'min:1',
-            'full_mark' => 'integer',
-            'duration' => 'integer',
-            'can_view_result' => '',
-            'is_question_random' => '',
-            'is_option_random' => '',
-            'is_signin_required' => '',
-            'is_specific_student' => '',
-
-            'exams.questions' => 'array',
-            'exams.questions.*.exam_id' => '',
-            'exams.questions.*.title' => 'string',
-
-            'exams.questions.options' => 'array',
-            'exams.questions.*.option.*.question_id' => '',
-            'exams.questions.*.option.*.title' => 'string',
-            'exams.questions.*.option.*.is_correct' => 'boolean',
+            'exam_start_time' => 'date_format:H:i:s',
+            'exam_end_time' => 'date_format:H:i:s',
+            'instruction' => 'nullable|string',
+            'full_mark' => 'required|numeric',
+            'duration' => 'required|integer',
+            'can_view_result' => 'nullable|boolean',
+            'is_question_random' => 'nullable|boolean',
+            'is_option_random' => 'nullable|boolean',
+            'is_signin_required' => 'nullable|boolean',
+            'is_specific_student' => 'nullable|boolean',
+            'questions' => 'array',
+            'questions.*.title' => 'string',
+            'questions.*.question_type' => 'string|in:mcq,short_answer', // Adjust as needed
+            'questions.*.status' => 'nullable|integer',
+            'questions.*.options' => 'nullable|array',
+            'questions.*.options.*.title' => 'required_with:questions.*.options|string',
+            'questions.*.options.*.is_correct' => 'required_with:questions.*.options|boolean',
         ];
     }
 }

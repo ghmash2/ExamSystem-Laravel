@@ -7,6 +7,7 @@ use App\Http\Requests\OptionRequest;
 use App\Models\Exam;
 use App\Models\Option;
 use App\Models\Question;
+use DB;
 use Illuminate\Http\Request;
 
 class CreateExamController extends Controller
@@ -15,16 +16,48 @@ class CreateExamController extends Controller
     {
         $request->validated();
 
-        $options = $request->input('exams.questions.options');
-        Option::create($options);
+        DB::beginTransaction();
 
-        $questions = $request->input('exams.questions');
-        unset($questions['options']);
-        Question::create($questions);
+        try {
+            $examData = $request->except('questions');
+            $exam = Exam::create($examData);
 
-        $exam = $request->input('exams');
-        unset($exam['questions']);
-        Exam::create($exam);
+            $questionsData = $request->input('questions', []);
+            foreach ($questionsData as $questionData) {
+                // Ensure the exam_id is set for the nested question
+                $questionData['exam_id'] = $exam->id;
+                $optionsData = $questionData['options'] ?? [];
+                unset($questionData['options']);
 
+                $question = $exam->questions()->create($questionData);
+
+                if (!empty($optionsData)) {
+                    // Prepare the options data for bulk insertion
+                    $optionsForInsert = collect($optionsData)->map(function ($option) use ($question) {
+                        return [
+                            'title' => $option['title'],
+                            'is_correct' => $option['is_correct'],
+                            'question_id' => $question->id,
+                        ];
+                    })->toArray();
+
+                    // Bulk insert options to reduce database queries
+                    $question->options()->insert($optionsForInsert);
+                }
+            }
+
+            DB::commit();
+
+            return response()->json(['message' => 'Exam created successfully!'], 201);
+        } catch (\Exception $e) {
+           // DB::rollBack();
+            return response()->json([
+                'message' => 'Failed to create exam.',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
 }
+
+
+
