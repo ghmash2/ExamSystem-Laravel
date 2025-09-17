@@ -7,7 +7,12 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Models\UserAnswer;
+use Dotenv\Exception\ValidationException;
 use Hash;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Foundation\Exceptions\Renderer\Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -19,12 +24,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return ApiResponseClass::sendResponse(UserResource::collection($users), 'User List', 200);
-        // return response()->json([
-        //     'success' => true,
-        //     'data' => $users,
-        //     'message' => 'User List'
-        // ], 200);
+        return ApiResponseClass::sendResponse(UserResource::collection($users), 'User List', 200, []);
     }
 
     /**
@@ -40,15 +40,15 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $validated = $request->validated();
-
+        $validated = $request->safe()->except(['password_confirmation']);
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images', 'public');
             $validated['image'] = $imagePath;
         }
-
+        
         $user = User::create($validated);
-        return ApiResponseClass::sendResponse(new UserResource($user), 'User created', 201);
+
+        return ApiResponseClass::sendResponse(new UserResource($user), 'User created', 201, []);
     }
 
     /**
@@ -56,8 +56,13 @@ class UserController extends Controller
      */
     public function show($user_id)
     {
-       $user = User::findOrFail($user_id);
-       return ApiResponseClass::sendResponse(new UserResource($user), 'Single User', 200);
+        try {
+            $user = User::findOrFail($user_id);
+        } catch (ModelNotFoundException $e) {
+            return ApiResponseClass::sendResponse([], 'User not found', 404, ["User Not Found"]);
+        }
+
+        return ApiResponseClass::sendResponse(new UserResource($user), 'User Founded Succesfully', 200);
     }
 
     /**
@@ -108,4 +113,18 @@ class UserController extends Controller
         return ApiResponseClass::sendResponse(new UserResource($user), 'User Deleted', 200);
     }
 
+    public function history(Request $request)
+    {
+        $user_id = $request->query('user_id');
+        $result = UserAnswer::where('user_id', $user_id)->get();
+        return ApiResponseClass::sendResponse($result, 'Exams attempted by this user', 200);
+    }
+    public function single_exam_history(Request $request, $user_exam_id)
+    {
+        $user_id = $request->query('user_id');
+        $exam_id = $request->query('exam_id');
+
+        $result = UserAnswer::with('answer_options')->where('user_id', $user_id)->where('exam_id', $exam_id)->where('id', $user_exam_id)->get();
+        return ApiResponseClass::sendResponse($result, 'Result of all Exam by a user', 200);
+    }
 }

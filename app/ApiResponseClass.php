@@ -11,27 +11,27 @@ class ApiResponseClass
     /**
      * Create a new class instance.
      */
-    public static function rollback($e, $message ="Something went wrong! Process not completed"){
-        DB::rollBack();
-        self::throw($e, $message);
-    }
+    // public static function rollback($e, $message ="Something went wrong! Process not completed"){
+    //     DB::rollBack();
+    //     self::throw($e, $message);
+    // }
 
-    public static function throw($e, $message ="Something went wrong! Process not completed"){
-        Log::info($e);
-        throw new HttpResponseException(response()->json(["message"=> $message], 500));
-    }
+    // public static function throw($e, $message ="Something went wrong! Process not completed"){
+    //     Log::info($e);
+    //     throw new HttpResponseException(response()->json(["message"=> $message], 500));
+    // }
 
-    public static function sendResponse($result , $message ,$code=200){
-        //  if ($result instanceof ResourceCollection) {
-        // $result = $result->toArray(request());}
-
-        $response=[
-            'success' => true,
-            'data'    => $result
-        ];
-        if(!empty($message)){
-            $response['message'] =$message;
+    public static function sendResponse($result=[] , $message=[], $code=200, $error=[], $success=true){
+        if(!empty($error) || empty($result)){
+            $success = false;
         }
+        $response=[
+            'success' => $success,
+            'code' => $code,
+            'data'    => $result,
+            'message' => $message,
+            'error' => $error
+        ];
         return response()->json($response, $code);
     }
 }

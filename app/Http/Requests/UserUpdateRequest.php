@@ -23,9 +23,9 @@ class UserUpdateRequest extends FormRequest
     {
         return [
             'name' => 'min:1',
-            'username' => 'min:1 | alpha_dash:ascii',
+            'username' => 'min:1 | alpha_dash:ascii|unique:users,username',
             'contact' => 'min:1 | max:18',
-            'email' => 'min:11',
+            'email' => 'min:11|unique:users,email',
             'password' => 'min:3 |confirmed | max:15',
             'image' => 'image | mimes:jpeg,jpg,png,gif | max:15024',
         ];

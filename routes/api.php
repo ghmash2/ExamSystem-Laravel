@@ -21,6 +21,8 @@ Route::get('/', [ExamController::class, 'index']);
 Route::apiResource('/exams', ExamController::class);
 Route::apiResource('/users', UserController::class)->except(['update']);
 Route::post('/users/{user}', [UserController::class, 'update']);
+Route::get('history', [UserController::class, 'history']);
+Route::get('/single_exam_history/{user_exam}', [UserController::class, 'single_exam_history']);
 Route::apiResource('/questions', QuestionController::class);
 Route::apiResource('/options', OptionController::class);
 Route::apiResource('/departments', DepartmentController::class);
