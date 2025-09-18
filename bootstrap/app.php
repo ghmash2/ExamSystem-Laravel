@@ -65,7 +65,15 @@ return Application::configure(basePath: dirname(__DIR__))
                 false
             );
         });
-
+         $exceptions->render(function (ErrorException $e, $request) {
+            return ApiResponseClass::sendResponse(
+                [],
+                'An error occurred while processing your request.',
+                500, // Internal Server Error
+                $e->getMessage(),
+                false
+            );
+        });
     })
 
     ->create();

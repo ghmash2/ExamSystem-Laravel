@@ -15,7 +15,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+       $students = Student::all();
+       return ApiResponseClass::sendResponse(StudentResource::collection($students), 'All Students List find Successfully', 200);
     }
 
 
@@ -26,7 +27,7 @@ class StudentController extends Controller
     {
          $validated = $request->validated();
          $student = Student::create($validated);
-         return ApiResponseClass::sendResponse(new StudentResource($student), 'New Student created', 200);
+         return ApiResponseClass::sendResponse(new StudentResource($student), 'New Student created Successfully', 200);
     }
 
     /**
@@ -35,7 +36,7 @@ class StudentController extends Controller
     public function show($id)
     {
         $student = Student::find($id);
-        return ApiResponseClass::sendResponse(new StudentResource($student), 'Single Student', 200);
+        return ApiResponseClass::sendResponse(new StudentResource($student), 'Find Student Successfully', 200);
     }
 
     /**
@@ -46,7 +47,7 @@ class StudentController extends Controller
         $student = Student::findOrFail($id);
         $validated = $request->validated();
         $student->update($validated);
-        return ApiResponseClass::sendResponse(new StudentResource($student), 'Student Updated', 201);
+        return ApiResponseClass::sendResponse(new StudentResource($student), 'Student Updated Successfully', 201);
     }
 
     /**
@@ -56,6 +57,6 @@ class StudentController extends Controller
     {
         $student = Student::findOrFail($id);
         $student->delete();
-        return ApiResponseClass::sendResponse(new StudentResource($student), 'Student Deleted', 201);
+        return ApiResponseClass::sendResponse(new StudentResource($student), 'Student Deleted successfully', 200);
     }
 }

@@ -48,7 +48,7 @@ class ExamController extends Controller
     {
         $exam = Exam::findOrFail($exam_id);
         //$questions = Question::where('exam_id', $exam_id)->with('options')->get();
-        return ApiResponseClass::sendResponse(new ExamResource($exam), 'Single Exam', 200);
+        return ApiResponseClass::sendResponse(new ExamResource($exam), 'Find Exam Successfully', 200);
         //return view('exams.show', compact('questions', 'exam'));
     }
 

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\ApiResponseClass;
+use App\Models\User;
 use Auth;
-use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -19,34 +20,33 @@ class AuthController extends Controller
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
+            'device' => ['required']
         ]);
-        try {
-            if (Auth::attempt($credentials, $request->remember)) {
-                // $request->session()->regenerate();
-                // return redirect()->intended('/');
-                return ApiResponseClass::sendResponse([], 'Successfully Logged in');
-            }
-            else{
-                return ApiResponseClass::sendResponse([], 'Email or Password is Invalid', 404, );
-            }
-        } catch (Exception $e) {
-
-            return ApiResponseClass::sendResponse([], 'Server Error', 500, $e->getMessage());
-
+        $user = User::where('email', $credentials['email'])->first();
+        if(!$user || ! Hash::check($credentials['password'], $user->password))
+        {
+            return ApiResponseClass::sendResponse([], 'Email or Password is Invalid', 404);
         }
-        // return back()->withErrors([
-        //     'email' => 'The provided credentials do not match our records.',
-        // ])->onlyInput('email');
+        $token = $user->createToken($credentials['device'])->plainTextToken;
+        $data=[
+            'user' => $user,
+            'token' => $token
+        ];
+        return ApiResponseClass::sendResponse($data, 'Successfully Logged in', 200);
+        //if (Auth::attempt($credentials, $request->remember))
     }
 
     public function logout(Request $request)
     {
-        Auth::logout();
-        // $request->session()->invalidate();
-        // $request->session()->regenerateToken();
-
-       return ApiResponseClass::sendResponse([], 'Successfully Logged out',200);
+        $request->user()->currentAccessToken()->delete();
+        return ApiResponseClass::sendResponse([], 'Successfully Logged out', 200);
     }
+    public function logoutAll(Request $request)
+    {
+        $request->user()->tokens()->delete();
+        return ApiResponseClass::sendResponse([], 'Successfully Logged out from all device', 200);
+    }
+
 
     public function register()
     {
