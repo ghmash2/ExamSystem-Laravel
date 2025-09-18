@@ -350,6 +350,28 @@
 				},
 				{
 					"name": "New Request Copy",
+					"id": "e06ad89a-8738-4fcb-a6f8-946815765333",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"EEE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/departments"
+					},
+					"response": []
+				},
+				{
+					"name": "Find Dept",
 					"id": "4c422bed-2ca1-4b10-8a63-7b715644b05d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
