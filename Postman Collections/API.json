@@ -355,24 +355,37 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"EEE\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"ECE\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/departments"
+						"url": "http://localhost:8000/api/departments/4"
 					},
 					"response": []
 				},
 				{
 					"name": "Find Dept",
 					"id": "4c422bed-2ca1-4b10-8a63-7b715644b05d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/departments/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Dept",
+					"id": "56a2205a-b7b3-44d9-89f7-a78cf4cde785",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
