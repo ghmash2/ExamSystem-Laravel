@@ -643,7 +643,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"user1@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+							"raw": "{\r\n    \"email\": \"user1@gmail.com\",\r\n    \"password\": \"12345\",\r\n    \"device\": \"Android A34\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -683,12 +683,12 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "Qp0x5wKb7zNjKfuVWO5fImZUKDlc7bLThHTXIdJI2dd2e7ad"
+								"token": "CTJgy2pND8gADHW5OKSIauGSk0BjYpXhrS0g35nQ65ba3f73"
 							}
 						},
 						"method": "POST",
 						"header": [],
-						"url": "http://localhost:8000/api/logout"
+						"url": "http://localhost:8000/api/logoutAll"
 					},
 					"response": []
 				}
