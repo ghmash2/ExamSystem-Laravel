@@ -426,7 +426,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"CSE\",\r\n    \"id_no\" : \"115\",\r\n    \"department_id\" : \"1\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"Adam\",\r\n    \"id_no\" : \"117\",\r\n    \"department_id\" : \"1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -459,7 +459,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/students/1"
+						"url": "http://localhost:8000/api/students"
 					},
 					"response": []
 				},
@@ -474,7 +474,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"name\": \"CSE\",\r\n        \"id_no\": \"113\",\r\n        \"department_id\": \"1\"\r\n}",
+							"raw": "{\r\n        \"name\": \"CSE\",\r\n        \"id_no\": \"113\",\r\n        \"department_id\": \"100\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -503,7 +503,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/students/4"
+						"url": "http://localhost:8000/api/students/400"
 					},
 					"response": []
 				}
@@ -633,6 +633,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|YDZs9iZMBn3FbanRRImZ4qNW7uGxquQVzZFcuioIed78843c"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -655,7 +661,13 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|YDZs9iZMBn3FbanRRImZ4qNW7uGxquQVzZFcuioIed78843c"
+							}
+						},
+						"method": "POST",
 						"header": [],
 						"url": "http://localhost:8000/api/logout"
 					},
