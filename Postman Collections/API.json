@@ -672,6 +672,25 @@
 						"url": "http://localhost:8000/api/logout"
 					},
 					"response": []
+				},
+				{
+					"name": "logout all",
+					"id": "6ba414e4-7bcf-454a-a366-98d49fd4b442",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Qp0x5wKb7zNjKfuVWO5fImZUKDlc7bLThHTXIdJI2dd2e7ad"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8000/api/logout"
+					},
+					"response": []
 				}
 			],
 			"id": "a77dc7e3-1e09-4375-8b6e-75fcfa8289be"
