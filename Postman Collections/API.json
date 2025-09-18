@@ -371,7 +371,7 @@
 					"response": []
 				},
 				{
-					"name": "Find Dept",
+					"name": "All Dept",
 					"id": "4c422bed-2ca1-4b10-8a63-7b715644b05d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -384,13 +384,26 @@
 					"response": []
 				},
 				{
+					"name": "Find Dept Copy",
+					"id": "53ea72f2-a4b9-481b-89d8-5b803f41fde4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/departments"
+					},
+					"response": []
+				},
+				{
 					"name": "Delete Dept",
 					"id": "56a2205a-b7b3-44d9-89f7-a78cf4cde785",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
 						"url": "http://localhost:8000/api/departments/4"
 					},
@@ -403,7 +416,7 @@
 			"name": "Student",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Create Student",
 					"id": "a1119ca9-f85b-4f51-bee5-9cdc733abc44",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -425,7 +438,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request Copy",
+					"name": "find student",
 					"id": "1365ed5c-8660-4778-b924-e1aaa5d0896a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -438,8 +451,43 @@
 					"response": []
 				},
 				{
-					"name": "New Request Copy 2",
+					"name": "find all students",
+					"id": "e9168b6b-9524-47ae-81c1-8345aa94ef90",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/students/1"
+					},
+					"response": []
+				},
+				{
+					"name": "update student",
 					"id": "ad62f812-f4a6-4a7f-bb2b-42b9ca8c794e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"CSE\",\r\n        \"id_no\": \"113\",\r\n        \"department_id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/students/4"
+					},
+					"response": []
+				},
+				{
+					"name": "update student Copy",
+					"id": "c96b6ae5-c087-48fe-bb32-7dbf21a389eb",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
