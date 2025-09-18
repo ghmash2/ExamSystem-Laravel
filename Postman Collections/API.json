@@ -520,6 +520,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Mbowpk7L1zcxiAMwprHur2BhdESOK970hA0d7ExJ9134b761"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:8000/api/exams/1/launch"
