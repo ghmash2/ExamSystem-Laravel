@@ -327,7 +327,7 @@
 			"name": "Department",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Create Dept",
 					"id": "6647214a-9df4-40a5-87af-4d20203387f5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
