@@ -486,13 +486,13 @@
 					"response": []
 				},
 				{
-					"name": "update student Copy",
+					"name": "delete student",
 					"id": "c96b6ae5-c087-48fe-bb32-7dbf21a389eb",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "PUT",
+						"method": "DELETE",
 						"header": [],
 						"body": {
 							"mode": "raw",
