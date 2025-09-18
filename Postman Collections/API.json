@@ -573,7 +573,8 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "http://localhost:8000/api/logout"
 					},
 					"response": []
 				}
