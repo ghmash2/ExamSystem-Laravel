@@ -1,0 +1,680 @@
+{
+	"info": {
+		"_postman_id": "db769ed5-82a0-4da3-810f-ae40170406ee",
+		"name": "ExamSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All users",
+					"id": "7a05c621-d92a-452e-9917-c2184b445604",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific user",
+					"id": "73ec42bd-2b06-418b-8919-389be9d142ae",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/users/100"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new user",
+					"id": "e18741cb-4d9b-4226-8045-110cf17b415c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User 3",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user3@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "user3",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "01222222222",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"uuid": "7146d3fb-f8d8-4643-b765-71c53b55fb1b",
+									"src": "/C:/Users/ooi/Downloads/test3.png"
+								}
+							]
+						},
+						"url": "http://localhost:8000/api/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a user",
+					"id": "596503f0-f9df-4a7f-97ae-8f118279966e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User 3",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user3",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "user3",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "01222222222",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"uuid": "7146d3fb-f8d8-4643-b765-71c53b55fb1b",
+									"src": "/C:/Users/ooi/Downloads/test3.png"
+								}
+							]
+						},
+						"url": "http://localhost:8000/api/users/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a user",
+					"id": "3ecab8b6-353e-4bfe-82ab-df614fc24e2e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8000/api/users/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Exams list a user attempted",
+					"id": "be7060d5-1e1c-4685-a889-351d25b6a1f3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/history?user_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"history"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "6a1e7917-0e93-4a1c-b2ae-902d7616ead5"
+		},
+		{
+			"name": "Image",
+			"item": [
+				{
+					"name": "http://localhost:8000/storage/images/naswniwB4SqYFN01ZmuM0phcCdOvFoJKW7n0kE5T.png",
+					"id": "a1922b9b-4cc9-4810-aefc-7cef6cf360c8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/storage/images/naswniwB4SqYFN01ZmuM0phcCdOvFoJKW7n0kE5T.png"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8000/storage/images/MH2MxcJgm7Fx0H6wcwQnWPdAQQXHKPtwKDsaGZHB.png",
+					"id": "e3c589e1-fa1b-48dc-9163-bf92387c0ef7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/storage/images/MH2MxcJgm7Fx0H6wcwQnWPdAQQXHKPtwKDsaGZHB.png"
+					},
+					"response": []
+				}
+			],
+			"id": "434ac019-e2c1-4fd8-a3c9-fa3b3c30d491"
+		},
+		{
+			"name": "Exam",
+			"item": [
+				{
+					"name": "Get Exam",
+					"id": "7ccd701a-c014-4136-ae0f-2c3690070f55",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/exams"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Exam",
+					"id": "894d70eb-6b48-4148-8cb5-1684b80c8c3d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"New Exam Title\",\r\n            \"tagline\": \"This is a great tagline\",\r\n            \"exam_date\": \"2025-09-25\",\r\n            \"exam_start_time\": \"09:10:00\",\r\n            \"exam_end_time\": \"10:30:00\",\r\n            \"instruction\": \"Read instructions carefully. This is a new exam.\",\r\n            \"full_mark\": 10,\r\n            \"duration\": 5000,\r\n            \"can_view_result\": 0,\r\n            \"is_question_random\": 1,\r\n            \"is_option_random\": 0,\r\n            \"is_signin_required\": 1,\r\n            \"is_specific_student\": null\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/exams"
+					},
+					"response": []
+				},
+				{
+					"name": "Update exam",
+					"id": "2aed4e96-d512-4ac9-85b9-d47fb407861b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"title\": \"New Exam Title Up\",\r\n        \"tagline\": \"This is a great tagline\",\r\n        \"exam_date\": \"2025-09-26\",\r\n        \"exam_start_time\": \"09:10:00\",\r\n        \"exam_end_time\": \"10:30:00\",\r\n        \"instruction\": \"Read instructions carefully. This is a new exam.\",\r\n        \"full_mark\": 80,\r\n        \"duration\": 5100,\r\n        \"can_view_result\": 1,\r\n        \"is_question_random\": 1,\r\n        \"is_option_random\": 0,\r\n        \"is_signin_required\": 1,\r\n        \"is_specific_student\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/exams/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Exam",
+					"id": "2cc8cfef-f385-420c-9cfd-ae5c7200642f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8000/api/exams/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Show exam",
+					"id": "071cfde6-a46f-44d6-8c9e-df8987db18cc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/exams/3"
+					},
+					"response": []
+				}
+			],
+			"id": "e83c89d7-13f4-462e-8655-8330d5f29b49"
+		},
+		{
+			"name": "Department",
+			"item": [
+				{
+					"name": "Create Dept",
+					"id": "6647214a-9df4-40a5-87af-4d20203387f5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"EEE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/departments"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request Copy",
+					"id": "e06ad89a-8738-4fcb-a6f8-946815765333",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"ECE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/departments/4"
+					},
+					"response": []
+				},
+				{
+					"name": "All Dept",
+					"id": "4c422bed-2ca1-4b10-8a63-7b715644b05d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/departments/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Find Dept Copy",
+					"id": "53ea72f2-a4b9-481b-89d8-5b803f41fde4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/departments"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Dept",
+					"id": "56a2205a-b7b3-44d9-89f7-a78cf4cde785",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8000/api/departments/4"
+					},
+					"response": []
+				}
+			],
+			"id": "bbdcc94b-3adf-4fa8-96a8-ecf1609c5dbc"
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Create Student",
+					"id": "a1119ca9-f85b-4f51-bee5-9cdc733abc44",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Adam\",\r\n    \"id_no\" : \"117\",\r\n    \"department_id\" : \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/students"
+					},
+					"response": []
+				},
+				{
+					"name": "find student",
+					"id": "1365ed5c-8660-4778-b924-e1aaa5d0896a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/students/1"
+					},
+					"response": []
+				},
+				{
+					"name": "find all students",
+					"id": "e9168b6b-9524-47ae-81c1-8345aa94ef90",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/students"
+					},
+					"response": []
+				},
+				{
+					"name": "update student",
+					"id": "ad62f812-f4a6-4a7f-bb2b-42b9ca8c794e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"CSE\",\r\n        \"id_no\": \"113\",\r\n        \"department_id\": \"100\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/students/4"
+					},
+					"response": []
+				},
+				{
+					"name": "delete student",
+					"id": "c96b6ae5-c087-48fe-bb32-7dbf21a389eb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"CSE\",\r\n        \"id_no\": \"113\",\r\n        \"department_id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/students/400"
+					},
+					"response": []
+				}
+			],
+			"id": "5beb9385-0ddb-4c9a-972f-b2e7cf92c062"
+		},
+		{
+			"name": "LaunchExam",
+			"item": [
+				{
+					"name": "Start Exam",
+					"id": "98d6279d-b2e4-4c1d-9403-df54df710348",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/exams/1/launch"
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Exam",
+					"id": "c4e1d20f-c1bb-4be2-b899-096395e262eb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"title\": \"Exam 4\",\r\n        \"tagline\": \"testexam4\",\r\n        \"exam_date\": \"2025-09-17\",\r\n        \"exam_start_time\": \"16:17:00\",\r\n        \"exam_end_time\": \"17:22:00\",\r\n        \"instruction\": \"Not Copy or get help from AI\",\r\n        \"full_mark\": 70,\r\n        \"duration\": 3000,\r\n        \"can_view_result\": 1,\r\n        \"is_question_random\": 1,\r\n        \"is_option_random\": 1,\r\n        \"is_signin_required\": 1,\r\n        \"is_specific_student\": null,\r\n        \"questions\": [\r\n            {\r\n                \"title\": \"what is 3*6\",\r\n                \"question_type\": \"mcq\",\r\n                \"status\": 0,\r\n                \"exam_id\": 8,\r\n                \"options\": [\r\n                    {\r\n                        \"title\": \"18\",\r\n                        \"is_correct\": 0,\r\n                        \"question_id\": 5\r\n                    },\r\n                    {\r\n                        \"title\": \"12\",\r\n                        \"is_correct\": 1,\r\n                        \"question_id\": 5\r\n                    },\r\n                    {\r\n                        \"title\": \"11\",\r\n                        \"is_correct\": 0,\r\n                        \"question_id\": 5\r\n                    },\r\n                    {\r\n                        \"title\": \"15\",\r\n                        \"is_correct\": 0,\r\n                        \"question_id\": 5\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"title\": \"what is 3+6\",\r\n                \"question_type\": \"mcq\",\r\n                \"status\": 0,\r\n                \"exam_id\": 8,\r\n                \"options\": [\r\n                    {\r\n                        \"title\": \"18\",\r\n                        \"is_correct\": 0,\r\n                        \"question_id\": 5\r\n                    },\r\n                    {\r\n                        \"title\": \"12\",\r\n                        \"is_correct\": 0,\r\n                        \"question_id\": 5\r\n                    },\r\n                    {\r\n                        \"title\": \"11\",\r\n                        \"is_correct\": 0,\r\n                        \"question_id\": 5\r\n                    },\r\n                    {\r\n                        \"title\": \"15\",\r\n                        \"is_correct\": 1,\r\n                        \"question_id\": 5\r\n                    }\r\n                ]\r\n            }\r\n        ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/exams/add"
+					},
+					"response": []
+				}
+			],
+			"id": "6378b516-9a5e-42b7-94cc-8c3ae7bf0ebd"
+		},
+		{
+			"name": "Result",
+			"item": [
+				{
+					"name": "submit",
+					"id": "4f9f7672-d980-4637-ac43-2a4d0a964498",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"exam_id\": 1,\r\n    \"user_id\": 1,\r\n    \"join_at\": \"2025-09-15 09:00:00\",\r\n    \"end_at\": \"2025-09-15 09:30:10\",\r\n    \"answers\": [\r\n        {\r\n            \"question_id\": 4,\r\n            \"answer_at\": 2\r\n        }   \r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/exams/1/submit"
+					},
+					"response": []
+				},
+				{
+					"name": "history result",
+					"id": "f1388861-2f5c-4d00-9c96-714f31efc1fb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"exam_id\": 1,\r\n    \"user_id\": 1,\r\n    \"join_at\": \"2025-09-15 09:00:00\",\r\n    \"end_at\": \"2025-09-15 09:30:10\",\r\n    \"answers\": [\r\n        {\r\n            \"question_id\": 4,\r\n            \"answer_at\": 2\r\n        }   \r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/single_exam_history/4?user_id=1&exam_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"single_exam_history",
+								"4"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								},
+								{
+									"key": "exam_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "e141667f-0215-4e13-89fc-1ee6b87bedfa"
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "login",
+					"id": "f9ccf4b3-fbf7-457a-ba15-a7f4c8641d40",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|YDZs9iZMBn3FbanRRImZ4qNW7uGxquQVzZFcuioIed78843c"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user1@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/login"
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"id": "508a5c81-4f4a-4f67-868c-52032083758a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Qp0x5wKb7zNjKfuVWO5fImZUKDlc7bLThHTXIdJI2dd2e7ad"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8000/api/logout"
+					},
+					"response": []
+				}
+			],
+			"id": "a77dc7e3-1e09-4375-8b6e-75fcfa8289be"
+		}
+	]
+}
