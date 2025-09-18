@@ -9,12 +9,6 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', [ExamController::class, 'index']);
 
-Route::get('register', [AuthController::class, 'register']);
-Route::get('login', [AuthController::class, 'showLogin']);
-Route::post('login', [AuthController::class, 'login'])->name('login');
-Route::get('logout', [AuthController::class, 'logout']);
-
-
 // Route::resource('exams', ExamController::class)->except(['show']);
 // Route::get('exams/{exam}', [ExamController::class, 'start']);
 

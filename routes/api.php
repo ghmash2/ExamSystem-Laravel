@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CreateExamController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\ExamController;
@@ -13,15 +14,15 @@ use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/', [ExamController::class, 'index']);
 Route::apiResource('/exams', ExamController::class);
 Route::apiResource('/users', UserController::class)->except(['update']);
 Route::post('/users/{user}', [UserController::class, 'update']);
-Route::get('history', [UserController::class, 'history']);
+Route::get('/history', [UserController::class, 'history']);
 Route::get('/single_exam_history/{user_exam}', [UserController::class, 'single_exam_history']);
 Route::apiResource('/questions', QuestionController::class);
 Route::apiResource('/options', OptionController::class);

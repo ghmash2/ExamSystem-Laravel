@@ -22,7 +22,7 @@ class ApiResponseClass
     // }
 
     public static function sendResponse($result=[] , $message=[], $code=200, $error=[], $success=true){
-        if(!empty($error) || empty($result)){
+        if(!empty($error)){
             $success = false;
         }
         $response=[

@@ -3,11 +3,15 @@
 use App\ApiResponseClass;
 use App\Http\Middleware\PreventExamNavigation;
 use App\Http\Middleware\RequestToJson;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -30,15 +34,29 @@ return Application::configure(basePath: dirname(__DIR__))
                 [],
                 'Validation failed',
                 422,
-                $e->errors(), // all validation errors
+                $e->errors(),
+                false
+            );
+        });
+        $exceptions->render(function (ModelNotFoundException $e, $request) {
+            return ApiResponseClass::sendResponse(
+                [],
+                'Resource not found.',
+                404,
+                $e->getMessage(),
+                false
+            );
+        });
+        $exceptions->render(function (NotFoundHttpException $e, $request) {
+            return ApiResponseClass::sendResponse(
+                [],
+                'The requested URL was not found on this server.',
+                404,
+                $e->getMessage(),
                 false
             );
         });
         $exceptions->render(function (QueryException $e, $request) {
-            // You can log the full exception for debugging
-            Log::error('Query Error: ' . $e->getMessage());
-
-            // Return a generic error message to the client
             return ApiResponseClass::sendResponse(
                 [],
                 'An error occurred while processing your request.',
@@ -47,6 +65,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 false
             );
         });
+
     })
 
     ->create();

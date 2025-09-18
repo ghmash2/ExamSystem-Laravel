@@ -38,7 +38,7 @@ class ExamController extends Controller
     {
         $validated = $request->validated();
         $exam = Exam::create($validated);
-        return ApiResponseClass::sendResponse(new ExamResource($exam), 'Product Create Successful', 201);
+        return ApiResponseClass::sendResponse(new ExamResource($exam), 'Exam Create Successful', 201);
     }
 
     /**
@@ -46,7 +46,7 @@ class ExamController extends Controller
      */
     public function show($exam_id)
     {
-        $exam = Exam::find($exam_id);
+        $exam = Exam::findOrFail($exam_id);
         //$questions = Question::where('exam_id', $exam_id)->with('options')->get();
         return ApiResponseClass::sendResponse(new ExamResource($exam), 'Single Exam', 200);
         //return view('exams.show', compact('questions', 'exam'));
@@ -81,13 +81,4 @@ class ExamController extends Controller
         return ApiResponseClass::sendResponse(new ExamResource($exam), 'Exam Deleted', 200);
     }
 
-    public function start(Exam $exam)
-    {
-        Session::put('exam_running', $exam->id);
-        return redirect()->route('exams.show', $exam);
-    }
-    public function submit(Request $request, $id)
-    {
-
-    }
 }

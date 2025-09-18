@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\ApiResponseClass;
 use App\Http\Requests\CreateExamRequest;
 use App\Http\Requests\OptionRequest;
+use App\Http\Resources\LauncedExamResource;
 use App\Models\Exam;
 use App\Models\Option;
 use App\Models\Question;
@@ -48,13 +50,10 @@ class CreateExamController extends Controller
 
             DB::commit();
 
-            return response()->json(['message' => 'Exam created successfully!'], 201);
+            return ApiResponseClass::sendResponse(new LauncedExamResource($exam), 'Exam Create Successful', 201);
         } catch (\Exception $e) {
-           // DB::rollBack();
-            return response()->json([
-                'message' => 'Failed to create exam.',
-                'error' => $e->getMessage()
-            ], 500);
+            DB::rollBack();
+            return ApiResponseClass::sendResponse([], 'Failed to create exam.',500,$e->getMessage());
         }
     }
 }
