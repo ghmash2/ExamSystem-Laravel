@@ -664,7 +664,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "1|YDZs9iZMBn3FbanRRImZ4qNW7uGxquQVzZFcuioIed78843c"
+								"token": "Qp0x5wKb7zNjKfuVWO5fImZUKDlc7bLThHTXIdJI2dd2e7ad"
 							}
 						},
 						"method": "POST",
