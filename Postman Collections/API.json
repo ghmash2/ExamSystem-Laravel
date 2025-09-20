@@ -705,34 +705,6 @@
 			"name": "Permission",
 			"item": [
 				{
-					"name": "add permission",
-					"id": "3d02cd8f-a202-4e89-9dfa-f2db2c5f7a6a",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": ""
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"permission_delete\",\r\n    \"is_active\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://localhost:8000/api/permissions"
-					},
-					"response": []
-				},
-				{
 					"name": "delete permission",
 					"id": "24af0bd9-6ecf-48e7-928d-15853982719c",
 					"protocolProfileBehavior": {
@@ -752,7 +724,7 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"url": "http://localhost:8000/api/permissions/1"
 					},
@@ -767,6 +739,28 @@
 					"request": {
 						"method": "GET",
 						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "add permission",
+					"id": "d0d0a071-4f1d-42b3-a4d1-5e0186299c11",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"exam_add\",\r\n    \"is_active\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/permissions"
 					},
 					"response": []
 				}
@@ -806,7 +800,36 @@
 		},
 		{
 			"name": "Role",
-			"item": [],
+			"item": [
+				{
+					"name": "add permission",
+					"id": "3d02cd8f-a202-4e89-9dfa-f2db2c5f7a6a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"teacher\",\r\n    \"is_active\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/userRole"
+					},
+					"response": []
+				}
+			],
 			"id": "e2c2a1f5-8b7d-49b1-9a2b-6efe28e61626"
 		},
 		{
