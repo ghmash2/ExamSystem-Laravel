@@ -6,10 +6,14 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\LauchExamController;
 use App\Http\Controllers\OptionController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ResultController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\RolePermissionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserRoleController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -31,9 +35,15 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('/students', StudentController::class);
     Route::apiResource('/exams', ExamController::class)->except('index');
     Route::post('/exams/add', [CreateExamController::class, 'store']);
+
 });
 
+Route::apiResource('/permissions', PermissionController::class);
+Route::apiResource('/roles', RoleController::class);
+Route::apiResource('/rolePermission', RolePermissionController::class);
+Route::apiResource('/userRole', UserRoleController::class);
 
+// Route::get('storage/{path}');
 
 // /exam/{exam}/submit  ---> POST evalute return result as response
 // /users/{user}/exams  ----> GET all exams of a user
