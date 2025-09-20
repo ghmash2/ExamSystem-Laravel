@@ -737,7 +737,32 @@
 		},
 		{
 			"name": "UserRole",
-			"item": [],
+			"item": [
+				{
+					"name": "add UserRole",
+					"id": "42409387-fdaa-4642-9d0a-8038a9bc7c27",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "10df3dfb-cb98-4ce3-a9c7-d3f21f522501",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "e4e9e72f-b39c-49b3-9bd2-6d20343f25c2"
 		}
 	]
