@@ -43,8 +43,5 @@ Route::apiResource('/roles', RoleController::class);
 Route::apiResource('/rolePermission', RolePermissionController::class);
 Route::apiResource('/userRole', UserRoleController::class);
 
-// Route::get('storage/{path}');
-
-// /exam/{exam}/submit  ---> POST evalute return result as response
-// /users/{user}/exams  ----> GET all exams of a user
-// /user/{user}/exams/{exam} ----> GET details of specific exam by specific user
+// Route::group(['middleware' => ['role:accountant']], function () {});
+// Route::group(['middleware' => ['permission:publish posts']], function () {});
