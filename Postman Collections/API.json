@@ -731,6 +731,30 @@
 						"url": "http://localhost:8000/api/permissions"
 					},
 					"response": []
+				},
+				{
+					"name": "delete permission",
+					"id": "24af0bd9-6ecf-48e7-928d-15853982719c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "update permission",
+					"id": "b8fa40c6-432b-4cb5-a51d-ab539d17116c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "04cdeb9a-567a-482f-8772-32f77dbdf222"
@@ -751,19 +775,30 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "delete userRole",
 					"id": "10df3dfb-cb98-4ce3-a9c7-d3f21f522501",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8000/api/userRole/3"
 					},
 					"response": []
 				}
 			],
 			"id": "e4e9e72f-b39c-49b3-9bd2-6d20343f25c2"
+		},
+		{
+			"name": "Role",
+			"item": [],
+			"id": "e2c2a1f5-8b7d-49b1-9a2b-6efe28e61626"
+		},
+		{
+			"name": "RolePermission",
+			"item": [],
+			"id": "7bcfaa97-c100-4a6a-8944-5b90068d1d34"
 		}
 	]
 }
