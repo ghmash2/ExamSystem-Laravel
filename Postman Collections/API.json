@@ -893,6 +893,48 @@
 						"url": "http://localhost:8000/api/roles"
 					},
 					"response": []
+				},
+				{
+					"name": "view role",
+					"id": "ac0bbffd-db08-4ed3-9b0c-780cb7ede8e0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "update role",
+					"id": "64c28818-a1e7-4c64-b592-efb14145740e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"teacher\",\r\n\"is_active\": 1\r\n}"
+						},
+						"url": "http://localhost:8000/api/roles/5"
+					},
+					"response": []
+				},
+				{
+					"name": "delete role",
+					"id": "bc8e38c4-232d-45b2-a478-86071e4a8ca6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8000/api/roles/5"
+					},
+					"response": []
 				}
 			],
 			"id": "e2c2a1f5-8b7d-49b1-9a2b-6efe28e61626"
