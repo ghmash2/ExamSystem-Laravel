@@ -714,14 +714,19 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "1|YDZs9iZMBn3FbanRRImZ4qNW7uGxquQVzZFcuioIed78843c"
+								"token": ""
 							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"post_add\",\r\n    \"is_active\": \"1\"\r\n}"
+							"raw": "{\r\n    \"name\": \"permission_delete\",\r\n    \"is_active\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": "http://localhost:8000/api/permissions"
 					},
