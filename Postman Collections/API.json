@@ -55,17 +55,17 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "User 3",
+									"value": "User 2",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "user3@gmail.com",
+									"value": "user2@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "username",
-									"value": "user3",
+									"value": "user2",
 									"type": "text"
 								},
 								{
@@ -87,7 +87,7 @@
 									"key": "image",
 									"type": "file",
 									"uuid": "7146d3fb-f8d8-4643-b765-71c53b55fb1b",
-									"src": "/C:/Users/ooi/Downloads/test3.png"
+									"src": "/C:/Users/ooi/Downloads/test2.jpg"
 								}
 							]
 						},
@@ -728,7 +728,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"post_add\",\r\n     \"is_active\": 1\r\n}",
+							"raw": "{\r\n    \"name\": \"post_add\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -773,7 +773,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"exam_add\",\r\n    \"is_active\": 1\r\n}",
+							"raw": "{\r\n    \"name\": \"result_view\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -801,14 +801,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"role\":\"Super-Admin\"\r\n}",
+							"raw": "{\r\n    \"role\":\"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/users/1/roles"
+						"url": "http://localhost:8000/api/users/8/roles"
 					},
 					"response": []
 				},
@@ -834,7 +834,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/userRole"
+						"url": "http://localhost:8000/api/users/8/roles"
 					},
 					"response": []
 				},
@@ -849,14 +849,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"user_id\": 1,\r\n\"role_id\": 3\r\n}",
+							"raw": "{\r\n\"roles\": [\"user\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/userRole/2"
+						"url": "http://localhost:8000/api/users/8/roles"
 					},
 					"response": []
 				}
@@ -883,7 +883,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Super-Admin\"\r\n}",
+							"raw": "{\r\n    \"name\": \"user\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -952,7 +952,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/rolePermission"
+						"url": "http://localhost:8000/api/roles/"
 					},
 					"response": []
 				},
