@@ -700,6 +700,24 @@
 				}
 			],
 			"id": "a77dc7e3-1e09-4375-8b6e-75fcfa8289be"
+		},
+		{
+			"name": "Permission",
+			"item": [
+				{
+					"name": "add permission",
+					"id": "3d02cd8f-a202-4e89-9dfa-f2db2c5f7a6a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "04cdeb9a-567a-482f-8772-32f77dbdf222"
 		}
 	]
 }
