@@ -902,7 +902,8 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "http://localhost:8000/api/roles"
 					},
 					"response": []
 				},
@@ -950,7 +951,8 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "http://localhost:8000/api/rolePermission"
 					},
 					"response": []
 				},
@@ -965,7 +967,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"role_id\" : 1,\r\n    \"permission_id\": 1\r\n}",
+							"raw": "{\r\n    \"role_id\" : 1,\r\n    \"permission_id\": 7\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -973,6 +975,45 @@
 							}
 						},
 						"url": "http://localhost:8000/api/rolePermission"
+					},
+					"response": []
+				},
+				{
+					"name": "update role permission",
+					"id": "beb9a4b1-a1ce-4132-b516-2148f323e43d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role_id\" : 1,\r\n    \"permission_id\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/rolePermission/7"
+					},
+					"response": []
+				},
+				{
+					"name": "delete role permission",
+					"id": "2a1375c1-253f-4ba9-831f-059905d1fdd6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role_id\" : 1,\r\n    \"permission_id\": 1\r\n}"
+						},
+						"url": "http://localhost:8000/api/rolePermission/7"
 					},
 					"response": []
 				}
