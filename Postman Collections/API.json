@@ -711,7 +711,7 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "POST",
+						"method": "DELETE",
 						"header": [],
 						"url": "http://localhost:8000/api/permissions/1"
 					},
