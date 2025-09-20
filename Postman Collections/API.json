@@ -711,7 +711,7 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "POST",
+						"method": "DELETE",
 						"header": [],
 						"url": "http://localhost:8000/api/permissions/1"
 					},
@@ -801,14 +801,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"user_id\":1,\r\n    \"role_id\":4\r\n}",
+							"raw": "{\r\n    \"role\":\"Super-Admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/userRole"
+						"url": "http://localhost:8000/api/users/1/roles"
 					},
 					"response": []
 				},
@@ -883,7 +883,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"teacher\",\r\n    \"is_active\": 1\r\n}",
+							"raw": "{\r\n    \"name\": \"Super-Admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
