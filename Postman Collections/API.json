@@ -711,8 +711,19 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|YDZs9iZMBn3FbanRRImZ4qNW7uGxquQVzZFcuioIed78843c"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"post_add\",\r\n    \"is_active\": \"1\"\r\n}"
+						},
+						"url": "http://localhost:8000/api/permissions"
 					},
 					"response": []
 				}
