@@ -746,8 +746,19 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:8000/api/permissions"
 					},
 					"response": []
 				},
@@ -811,6 +822,31 @@
 						"method": "DELETE",
 						"header": [],
 						"url": "http://localhost:8000/api/userRole/3"
+					},
+					"response": []
+				},
+				{
+					"name": "view userRole",
+					"id": "4fd51864-1865-4f5d-aba3-4a3980999008",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/userRole"
+					},
+					"response": []
+				},
+				{
+					"name": "update userRole",
+					"id": "560e7eef-1336-4aa0-a01a-bc6b70b7a8d6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
