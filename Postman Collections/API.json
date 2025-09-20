@@ -801,7 +801,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"user_id\":1,\r\n    \"role_id\":4\r\n}",
+							"raw": "{\r\n    \"role_id\":\"Super-Admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
