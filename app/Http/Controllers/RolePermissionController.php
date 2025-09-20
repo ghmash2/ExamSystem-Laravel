@@ -3,70 +3,56 @@
 namespace App\Http\Controllers;
 
 use App\ApiResponseClass;
-use App\Models\RolePermission;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class RolePermissionController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display the specified role and its permissions.
      */
-    public function index()
+    public function show(Role $role)
     {
-        $role_permissions = RolePermission::all();
-       return ApiResponseClass::sendResponse($role_permissions, "All role_permissions find successfully", 200);
+        return ApiResponseClass::sendResponse($role->load('permissions'), "Role permissions fetched successfully", 200);
+    }
+    /**
+     * Assign a single new permission to a role.
+     */
+    public function assign(Request $request, Role $role)
+    {
+        $validated = $request->validate([
+            'permission' => 'required|string|exists:permissions,name',
+        ]);
+
+        // Spatie's givePermissionTo method attaches the permission to the role
+        $role->givePermissionTo($validated['permission']);
+
+        return ApiResponseClass::sendResponse($role->load('permissions'), "Permission assigned successfully", 200);
+    }
+    /**
+     * Update/Sync a role's permissions, replacing existing ones with a new set.
+     */
+    public function update(Request $request, Role $role)
+    {
+        $validated = $request->validate([
+            'permissions' => 'required|array',
+            'permissions.*' => 'string|exists:permissions,name',
+        ]);
+
+        // syncPermissions replaces all old permissions with the new set
+        $role->syncPermissions($validated['permissions']);
+
+        return ApiResponseClass::sendResponse($role->load('permissions'), "Role permissions updated successfully", 201);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Delete a specific permission from a role.
      */
-    public function create()
+    public function delete(Role $role, string $permission)
     {
-        //
-    }
+        // Spatie's revokePermissionTo detaches the specified permission
+        $role->revokePermissionTo($permission);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $request->validate(['role_id' => 'required']);
-        $role_permission = RolePermission::create($request->all());
-        return ApiResponseClass::sendResponse($role_permission, "role_permission created successfully", 200);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, RolePermission $rolePermission)
-    {
-       $rolePermission->update($request->all());
-       $rolePermission->refresh;
-       return ApiResponseClass::sendResponse($rolePermission, "role_permission updated successfully", 201);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(RolePermission $rolePermission)
-    {
-       $rolePermission->delete();
-       return ApiResponseClass::sendResponse($rolePermission, "role_permission deleted successfully", 200);
+        return ApiResponseClass::sendResponse($role->load('permissions'), "Permission removed successfully", 200);
     }
 }

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\ApiResponseClass;
-use App\Models\Role;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -30,8 +30,8 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['name' => 'required|unique:roles,name', 'is_active' => 'boolean']);
-        $role = Role::create($request->all());
+        $request->validate(['name' => 'required|unique:roles,name']);
+        $role = Role::create(['name' => $request->name, 'guard_name'=>'api']);
         return ApiResponseClass::sendResponse($role, "role created successfully", 200);
 
     }
@@ -55,13 +55,11 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $role_id)
+    public function update(Request $request, Role $roles)
     {
-       $request->validate(['is_active' => 'boolean']);
-       $role = Role::findOrFail($role_id);
-       $role->update($request->all());
-       $role->refresh;
-       return ApiResponseClass::sendResponse($role, "role updated successfully", 201);
+       $roles->update($request->all());
+       $roles->refresh;
+       return ApiResponseClass::sendResponse($roles, "role updated successfully", 201);
     }
 
     /**
@@ -69,7 +67,7 @@ class RoleController extends Controller
      */
     public function destroy($role_id)
     {
-       $role = role::findOrFail($role_id);
+       $role = Role::findOrFail($role_id);
        $role->delete();
        return ApiResponseClass::sendResponse($role, "role deleted successfully", 200);
     }

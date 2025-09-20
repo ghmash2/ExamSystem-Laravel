@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\ApiResponseClass;
-use App\Models\Permission;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
@@ -30,8 +30,8 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['name' => 'required|unique:permissions,name', 'is_active' => 'boolean']);
-        $permission = Permission::create($request->all());
+        $request->validate(['name' => 'required|unique:permissions,name']);
+        $permission = Permission::create(['name' => $request->name, 'guard_name'=>'api']);
         return ApiResponseClass::sendResponse($permission, "permission created successfully", 200);
     }
 
@@ -54,10 +54,9 @@ class PermissionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $permission_id)
+    public function update(Request $request, Permission $permissions)
     {
-       $request->validate(['is_active' => 'boolean']);
-       $permission = Permission::findOrFail($permission_id);
+       $permission = Permission::findOrFail($permissions);
        $permission->update($request->all());
        $permission->refresh;
        return ApiResponseClass::sendResponse($permission, "permission updated successfully", 201);
@@ -66,9 +65,9 @@ class PermissionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($permission_id)
+    public function destroy(Permission $permissions)
     {
-       $permission = Permission::findOrFail($permission_id);
+       $permission = Permission::findOrFail($permissions);
        $permission->delete();
        return ApiResponseClass::sendResponse($permission, "permission deleted successfully", 200);
     }

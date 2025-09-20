@@ -37,11 +37,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/exams/add', [CreateExamController::class, 'store']);
 
 });
+Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
+    Route::apiResource('/roles', RoleController::class);
+    Route::apiResource('/permissions', PermissionController::class);
+    Route::apiResource('/rolePermission', RolePermissionController::class);
+    Route::apiResource('/userRole', UserRoleController::class);
+});
 
-Route::apiResource('/permissions', PermissionController::class);
-Route::apiResource('/roles', RoleController::class);
-Route::apiResource('/rolePermission', RolePermissionController::class);
-Route::apiResource('/userRole', UserRoleController::class);
 
-// Route::group(['middleware' => ['role:accountant']], function () {});
-// Route::group(['middleware' => ['permission:publish posts']], function () {});
