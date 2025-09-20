@@ -726,6 +726,15 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"post_add\",\r\n     \"is_active\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": "http://localhost:8000/api/permissions/1"
 					},
 					"response": []
@@ -778,7 +787,17 @@
 					},
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":1,\r\n    \"role_id\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/userRole"
 					},
 					"response": []
 				},
@@ -802,7 +821,7 @@
 			"name": "Role",
 			"item": [
 				{
-					"name": "add permission",
+					"name": "add role",
 					"id": "3d02cd8f-a202-4e89-9dfa-f2db2c5f7a6a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -825,7 +844,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/userRole"
+						"url": "http://localhost:8000/api/roles"
 					},
 					"response": []
 				}
