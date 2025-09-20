@@ -739,14 +739,28 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8000/api/permissions/1"
 					},
 					"response": []
 				},
 				{
 					"name": "update permission",
 					"id": "b8fa40c6-432b-4cb5-a51d-ab539d17116c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8000/api/permissions/1"
+					},
+					"response": []
+				},
+				{
+					"name": "view permissions",
+					"id": "613b26c8-5498-45dc-a70f-2362f6905fb1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
