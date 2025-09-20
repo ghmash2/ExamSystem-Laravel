@@ -941,7 +941,42 @@
 		},
 		{
 			"name": "RolePermission",
-			"item": [],
+			"item": [
+				{
+					"name": "view rolePermission",
+					"id": "5ffc98b5-3392-4cf0-96c9-a50829a1ee2d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "add role permission",
+					"id": "999fa60f-f847-454f-9fa0-3bce74a20a4b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role_id\" : 1,\r\n    \"permission_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/rolePermission"
+					},
+					"response": []
+				}
+			],
 			"id": "7bcfaa97-c100-4a6a-8944-5b90068d1d34"
 		}
 	]
