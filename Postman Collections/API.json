@@ -801,14 +801,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"role_id\":\"Super-Admin\"\r\n}",
+							"raw": "{\r\n    \"role\":\"Super-Admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/userRole"
+						"url": "http://localhost:8000/api/users/1/roles"
 					},
 					"response": []
 				},
