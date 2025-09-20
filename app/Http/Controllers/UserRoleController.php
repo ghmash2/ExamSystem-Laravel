@@ -7,27 +7,29 @@ use App\ApiResponseClass;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserRoleController extends Controller
 {
     public function show(User $user)
     {
-        return ApiResponseClass::sendResponse($user, "User roles fetched successfully", 200);
+        return ApiResponseClass::sendResponse(new UserResource($user), "User roles fetched successfully", 200);
     }
 
     /**
      * Assign a single new role to a user.
      */
-    public function store(Request $request, User $user)
+    public function assign(Request $request, User $user)
     {
         $validated = $request->validate([
             'role' => 'required|string|exists:roles,name',
         ]);
 
         // Spatie's assignRole method handles attaching the role via the pivot table
-        $user->assignRole($validated['role']);
+        $role = Role::findByName($validated['role'], 'api');
+        $user->assignRole($role);
 
-        return ApiResponseClass::sendResponse($user, "Role assigned successfully", 200);
+        return ApiResponseClass::sendResponse(new UserResource($user), "Role assigned successfully", 200);
     }
 
     /**
@@ -43,17 +45,17 @@ class UserRoleController extends Controller
         // syncRoles replaces all old roles with the new set
         $user->syncRoles($validated['roles']);
 
-        return ApiResponseClass::sendResponse($user, "User roles updated successfully", 201);
+        return ApiResponseClass::sendResponse(new UserResource($user), "User roles updated successfully", 201);
     }
 
     /**
      * Delete a specific role from a user.
      */
-    public function destroy(User $user, string $role)
+    public function delete(User $user, string $role)
     {
         // Spatie's removeRole detaches the specified role
         $user->removeRole($role);
 
-        return ApiResponseClass::sendResponse($user, "Role removed successfully", 200);
+        return ApiResponseClass::sendResponse(new UserResource($user), "Role removed successfully", 200);
     }
 }

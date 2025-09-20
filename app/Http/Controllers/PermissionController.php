@@ -14,7 +14,8 @@ class PermissionController extends Controller
     public function index()
     {
         $permissions = Permission::all();
-        return ApiResponseClass::sendResponse($permissions, "All permissions find successfully", 200);
+
+        return ApiResponseClass::sendResponse($permissions, 'All permissions find successfully', 200);
     }
 
     /**
@@ -31,8 +32,9 @@ class PermissionController extends Controller
     public function store(Request $request)
     {
         $request->validate(['name' => 'required|unique:permissions,name']);
-        $permission = Permission::create(['name' => $request->name, 'guard_name'=>'api']);
-        return ApiResponseClass::sendResponse($permission, "permission created successfully", 200);
+        $permission = Permission::create(['name' => $request->name, 'guard_name' => 'api']);
+
+        return ApiResponseClass::sendResponse($permission, 'permission created successfully', 200);
     }
 
     /**
@@ -54,12 +56,15 @@ class PermissionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Permission $permissions)
+    public function update(Request $request, Permission $permission)
     {
-       $permission = Permission::findOrFail($permissions);
-       $permission->update($request->all());
-       $permission->refresh;
-       return ApiResponseClass::sendResponse($permission, "permission updated successfully", 201);
+        $request->validate([
+            'name' => 'required|unique:permissions,name,'.$permission->id,
+        ]);
+        $permission->update($request->all());
+        $permission->refresh();
+
+        return ApiResponseClass::sendResponse($permission, 'permission updated successfully', 201);
     }
 
     /**
@@ -67,8 +72,7 @@ class PermissionController extends Controller
      */
     public function destroy(Permission $permissions)
     {
-       $permission = Permission::findOrFail($permissions);
-       $permission->delete();
-       return ApiResponseClass::sendResponse($permission, "permission deleted successfully", 200);
+        $permissions->delete();
+        return ApiResponseClass::sendResponse([], 'permission deleted successfully', 200);
     }
 }
