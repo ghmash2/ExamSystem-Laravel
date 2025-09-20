@@ -883,7 +883,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"teacher\",\r\n    \"is_active\": 1\r\n}",
+							"raw": "{\r\n    \"name\": \"Super-Admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
