@@ -592,7 +592,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/students/1"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "40275be3-50af-43c1-8e4a-c50f682ffe47",
+							"name": "200 OK - Get student by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/students/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\": 1, \"name\": \"Student A\", \"email\": \"student.a@example.com\", \"department_id\": 1}"
+						}
+					]
 				},
 				{
 					"name": "Create Student",
