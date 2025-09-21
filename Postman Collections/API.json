@@ -410,7 +410,55 @@
 						},
 						"url": "http://localhost:8000/api/exams/9"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "08001259-82c3-4310-974e-fc7c16c64c82",
+							"name": "200 OK - Update exam",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"title\":\"Midterm (Updated)\",\"duration_minutes\":60}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/exams/9"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\": 9, \"title\": \"Midterm (Updated)\"}"
+						}
+					]
 				},
 				{
 					"name": "Delete Exam",
@@ -429,7 +477,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/exams/7"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "2af74305-13fc-4fb0-b39f-ee6c73ac07fd",
+							"name": "200 OK - Delete exam",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/exams/7"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"message\": \"Deleted\"}"
+						}
+					]
 				}
 			],
 			"id": "e83c89d7-13f4-462e-8655-8330d5f29b49"
@@ -1022,7 +1103,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/permissions/1"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "bcf6ce94-6788-4624-83a3-8b83a6625943",
+							"name": "200 OK - Delete permission",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/permissions/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"message\": \"Deleted\"}"
+						}
+					]
 				}
 			],
 			"id": "04cdeb9a-567a-482f-8772-32f77dbdf222"
@@ -1343,7 +1457,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/roles/4/permissions/result_edit"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "ddf865de-a5b7-4ad4-bc99-97b64c7c7ede",
+							"name": "200 OK - Delete role permission",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/roles/4/permissions/result_edit"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"message\": \"Deleted\"}"
+						}
+					]
 				}
 			],
 			"id": "7bcfaa97-c100-4a6a-8944-5b90068d1d34"
