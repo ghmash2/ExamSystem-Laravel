@@ -11,7 +11,12 @@ use Illuminate\Routing\Controller as BaseController;
 class QuestionController extends BaseController
 {
      public function __construct() {
-        $this->middleware('permission:manage_question')->only(['index', 'store', 'show', 'update', 'destroy']);
+        $this->middleware('permission:create_question')->only(['store']);
+        $this->middleware('permission:edit_question')->only(['update']);
+        $this->middleware('permission:delete_question')->only(['destroy']);
+        $this->middleware('permission:view_question')->only(['show']);
+        $this->middleware('permission:view_questions')->only(['index']);
+       // $this->middleware('permission:manage_question')->only(['index', 'store', 'show', 'update', 'destroy']);
     }
 
     /**

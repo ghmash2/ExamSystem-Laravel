@@ -9,7 +9,12 @@ use Illuminate\Routing\Controller as BaseController;
 class PermissionController extends BaseController
 {
     public function __construct() {
-          $this->middleware('permission:manage_permissions')->only(['index', 'store', 'update', 'destroy']);
+        $this->middleware('permission:create_permission')->only(['store']);
+        $this->middleware('permission:edit_permission')->only(['update']);
+        $this->middleware('permission:delete_permission')->only(['destroy']);
+        $this->middleware('permission:view_permission')->only(['show']);
+        $this->middleware('permission:view_permissions')->only(['index']);
+          //$this->middleware('permission:manage_permissions')->only(['index', 'store', 'update', 'destroy']);
     }
     /**
      * Display a listing of the resource.

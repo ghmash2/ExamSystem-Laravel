@@ -12,7 +12,9 @@ use Illuminate\Routing\Controller as BaseController;
 class UserRoleController extends BaseController
 {
     public function __construct() {
-        $this->middleware('permission:manage_user_roles')->only(['assign', 'update', 'delete']);
+        $this->middleware('permission:assign_user_roles')->only(['assign']);
+        $this->middleware('permission:edit_user_roles')->only(['update']);
+        $this->middleware('permission:delete_user_roles')->only(['delete']);
         $this->middleware('permission:view_user_roles')->only(['show']);
     }
     public function show(User $user)

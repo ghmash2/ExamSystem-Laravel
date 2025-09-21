@@ -11,7 +11,12 @@ use Illuminate\Routing\Controller as BaseController;
 class DepartmentController extends BaseController
 {
     public function __construct() {
-        $this->middleware('permission:manage_department')->only(['index', 'store', 'show', 'update', 'destroy']);
+        $this->middleware('permission:create_department')->only(['store']);
+        $this->middleware('permission:edit_department')->only(['update']);
+        $this->middleware('permission:delete_department')->only(['destroy']);
+        $this->middleware('permission:view_department')->only(['show']);
+        $this->middleware('permission:view_departments')->only(['index']);
+        //$this->middleware('permission:manage_department')->only(['index', 'store', 'show', 'update', 'destroy']);
     }
     /**
      * Display a listing of the resource.

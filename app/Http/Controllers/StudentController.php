@@ -11,7 +11,12 @@ use Illuminate\Routing\Controller as BaseController;
 class StudentController extends BaseController
 {
     public function __construct() {
-        $this->middleware('permission:manage_student')->only(['index', 'store', 'show', 'update', 'destroy']);
+        $this->middleware('permission:create_student')->only(['store']);
+        $this->middleware('permission:edit_student')->only(['update']);
+        $this->middleware('permission:delete_student')->only(['destroy']);
+        $this->middleware('permission:view_student')->only(['show']);
+        $this->middleware('permission:view_students')->only(['index']);
+       // $this->middleware('permission:manage_student')->only(['index', 'store', 'show', 'update', 'destroy']);
     }
     /**
      * Display a listing of the resource.

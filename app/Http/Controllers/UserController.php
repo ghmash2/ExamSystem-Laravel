@@ -21,9 +21,10 @@ class UserController extends BaseController
         $this->middleware('permission:create_user')->only(['store']);
         $this->middleware('permission:edit_user')->only(['update']);
         $this->middleware('permission:delete_user')->only(['destroy']);
-        $this->middleware('permission:view_profile')->only(['show']);
+        $this->middleware('permission:view_user')->only(['show']);
         $this->middleware('permission:view_users')->only(['index']);
-        $this->middleware('permission:view_history_result')->only(['history', 'single_exam_history']);
+        $this->middleware('permission:view_user_history')->only(['history']);
+        $this->middleware('permission:view_history_result')->only(['single_exam_history']);
     }
     /**
      * Display a listing of the resource.

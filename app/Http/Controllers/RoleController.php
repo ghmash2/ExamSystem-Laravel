@@ -9,7 +9,12 @@ use Illuminate\Routing\Controller as BaseController;
 class RoleController extends BaseController
 {
     public function __construct() {
-          $this->middleware('permission:manage_roles')->only(['index', 'store', 'update', 'destroy']);
+        $this->middleware('permission:create_role')->only(['store']);
+        $this->middleware('permission:edit_role')->only(['update']);
+        $this->middleware('permission:delete_role')->only(['destroy']);
+        $this->middleware('permission:view_role')->only(['show']);
+        $this->middleware('permission:view_roles')->only(['index']);
+          //$this->middleware('permission:manage_roles')->only(['index', 'store', 'update', 'destroy']);
     }
     /**
      * Display a listing of the resource.

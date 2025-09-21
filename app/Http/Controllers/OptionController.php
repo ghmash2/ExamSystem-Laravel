@@ -11,7 +11,12 @@ use Illuminate\Routing\Controller as BaseController;
 class OptionController extends BaseController
 {
      public function __construct() {
-        $this->middleware('permission:manage_option')->only(['index', 'store', 'show', 'update', 'destroy']);
+        $this->middleware('permission:create_option')->only(['store']);
+        $this->middleware('permission:edit_option')->only(['update']);
+        $this->middleware('permission:delete_option')->only(['destroy']);
+        $this->middleware('permission:view_option')->only(['show']);
+        $this->middleware('permission:view_options')->only(['index']);
+        //$this->middleware('permission:manage_option')->only(['index', 'store', 'show', 'update', 'destroy']);
     }
     /**
      * Display a listing of the resource.

@@ -15,7 +15,12 @@ use Illuminate\Routing\Controller as BaseController;
 class ExamController extends BaseController
 {
     public function __construct() {
-        $this->middleware('permission:manage_exam')->only(['index', 'store', 'show', 'update', 'destroy']);
+        $this->middleware('permission:create_exam')->only(['store']);
+        $this->middleware('permission:edit_exam')->only(['update']);
+        $this->middleware('permission:delete_exam')->only(['destroy']);
+        $this->middleware('permission:view_exam')->only(['show']);
+        $this->middleware('permission:view_exams')->only(['index']);
+        //$this->middleware('permission:manage_exam')->only(['index', 'store', 'show', 'update', 'destroy']);
     }
     /**
      * Display a listing of the resource.

@@ -10,9 +10,12 @@ use Illuminate\Routing\Controller as BaseController;
 class RolePermissionController extends BaseController
 {
     public function __construct() {
-          $this->middleware('permission:manage_role_permissions')->only(['assign', 'update', 'delete']);
-          $this->middleware('permission:view_role_permissions')->only(['show']);
+        $this->middleware('permission:assign_role_permissions')->only(['assign']);
+        $this->middleware('permission:edit_role_permissions')->only(['update']);
+        $this->middleware('permission:delete_role_permissions')->only(['delete']);
+        $this->middleware('permission:view_role_permissions')->only(['show']);
     }
+    
     /**
      * Display the specified role and its permissions.
      */

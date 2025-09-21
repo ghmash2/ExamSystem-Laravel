@@ -15,7 +15,7 @@ use Illuminate\Routing\Controller as BaseController;
 class CreateExamController extends BaseController
 {
     public function __construct() {
-        $this->middleware('permission:create_exam')->only('store');
+        $this->middleware('permission:create_full_exam')->only('store');
     }
     public function store(CreateExamRequest $request)
     {
