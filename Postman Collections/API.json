@@ -24,7 +24,8 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/users"
+						"url": "http://localhost:8000/api/users",
+						"description": "Summary: List users\nEndpoint: GET {{base_url}}{{api_prefix}}/users\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\n- Content-Type: application/json (optional)\nPath params: None\nQuery params: Optional pagination/filtering parameters (e.g., page, per_page)\nRequest body: None\nSuccess response: 200 OK. Returns a JSON object with a data array of users and meta information.\nNotes: Use this to retrieve a paginated list of users.\nError responses: 401 Unauthenticated, 403 Forbidden, 404 Not Found, 429 Too Many Requests, 500 Server error"
 					},
 					"response": [
 						{
@@ -58,6 +59,49 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"data\": [{\"id\": 1, \"name\": \"Jane Doe\", \"email\": \"jane@example.com\"}], \"meta\": {\"count\": 1}}"
+						},
+						{
+							"id": "596351ea-790d-4060-b97a-f54c2154936c",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/users"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"data\":[{\"id\":1,\"name\":\"Jane Doe\",\"email\":\"jane@example.com\"}],\"meta\":{\"count\":1}}"
 						}
 					]
 				},
@@ -588,7 +632,8 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/exams/1"
+						"url": "http://localhost:8000/api/exams/1",
+						"description": "Summary: Get exam by ID\nEndpoint: GET {{base_url}}{{api_prefix}}/exams/{id}\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\nPath params:\n- id (integer) — Exam ID\nQuery params: None\nRequest body: None\nSuccess response: 200 OK. Returns exam details.\nError responses: 401 Unauthenticated, 403 Forbidden, 404 Not Found, 500 Server error"
 					},
 					"response": [
 						{
@@ -622,6 +667,49 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"id\": 1, \"title\": \"Midterm\", \"description\": \"...\", \"duration_minutes\": 60}"
+						},
+						{
+							"id": "c60d13c1-2df4-4ffc-b6c8-9db6c1564056",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/exams/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\":1,\"title\":\"Midterm\"}"
 						}
 					]
 				},
