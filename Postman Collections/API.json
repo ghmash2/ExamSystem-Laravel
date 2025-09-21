@@ -1348,7 +1348,8 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/students/1"
+						"url": "http://localhost:8000/api/students/1",
+						"description": "Summary: Get student by ID\nEndpoint: GET {{base_url}}{{api_prefix}}/students/{id}\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\nPath params:\n- id (integer) — Student ID\nQuery params: None\nRequest body: None\nSuccess response: 200 OK. Returns student details.\nError responses: 401 Unauthenticated, 403 Forbidden, 404 Not Found, 500 Server error"
 					},
 					"response": [
 						{
@@ -1382,6 +1383,49 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"id\": 1, \"name\": \"Student A\", \"email\": \"student.a@example.com\", \"department_id\": 1}"
+						},
+						{
+							"id": "fc31d8c4-7c74-4eeb-b078-73b6cc911a76",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/students/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\":1,\"name\":\"Student A\",\"department_id\":1}"
 						}
 					]
 				},
@@ -2346,7 +2390,8 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:8000/api/permissions/1"
+						"url": "http://localhost:8000/api/permissions/1",
+						"description": "Summary: Delete permission\nEndpoint: DELETE {{base_url}}{{api_prefix}}/permissions/{id}\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\nPath params:\n- id (integer) — Permission ID\nQuery params: None\nRequest body: None\nSuccess response: 200 OK. {\"message\":\"Deleted\"}\nError responses: 401 Unauthenticated, 403 Forbidden, 404 Not Found, 422 Validation error"
 					},
 					"response": [
 						{
@@ -2380,6 +2425,49 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"message\": \"Deleted\"}"
+						},
+						{
+							"id": "4bb7d222-2115-4a6e-83ac-333f3fd28056",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/permissions/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"message\":\"Deleted\"}"
 						}
 					]
 				}
