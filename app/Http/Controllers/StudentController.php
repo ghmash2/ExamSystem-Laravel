@@ -7,9 +7,12 @@ use App\Http\Requests\StudentRequest;
 use App\Http\Resources\StudentResource;
 use App\Models\Student;
 use Illuminate\Http\Request;
-
-class StudentController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+class StudentController extends BaseController
 {
+    public function __construct() {
+        $this->middleware('permission:manage_student')->only(['index', 'store', 'show', 'update', 'destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

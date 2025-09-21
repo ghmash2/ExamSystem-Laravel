@@ -7,9 +7,13 @@ use App\Http\Requests\QuestionRequest;
 use App\Models\Exam;
 use App\Models\Question;
 use Illuminate\Http\Request;
-
-class QuestionController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+class QuestionController extends BaseController
 {
+     public function __construct() {
+        $this->middleware('permission:manage_question')->only(['index', 'store', 'show', 'update', 'destroy']);
+    }
+
     /**
      * Display a listing of the resource.
      */

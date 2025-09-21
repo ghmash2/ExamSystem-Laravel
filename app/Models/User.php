@@ -12,7 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, HasRoles, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +20,9 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $table = 'users';
+
     protected string $guard_name = 'api';
+
     protected $fillable = [
         'name',
         'email',
@@ -28,7 +30,7 @@ class User extends Authenticatable
         'password_confirmation',
         'contact',
         'username',
-        'image'
+        'image',
     ];
 
     /**
@@ -52,5 +54,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function isSuperAdmin()
+    {
+        return $this->hasRole('Super-Admin');
     }
 }

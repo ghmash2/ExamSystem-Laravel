@@ -7,9 +7,12 @@ use App\Http\Requests\DepartmentRequest;
 use App\Http\Resources\DepartmentResource;
 use App\Models\Department;
 use Illuminate\Http\Request;
-
-class DepartmentController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+class DepartmentController extends BaseController
 {
+    public function __construct() {
+        $this->middleware('permission:manage_department')->only(['index', 'store', 'show', 'update', 'destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

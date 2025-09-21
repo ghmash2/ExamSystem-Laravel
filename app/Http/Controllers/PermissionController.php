@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\ApiResponseClass;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
-
-class PermissionController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+class PermissionController extends BaseController
 {
+    public function __construct() {
+          $this->middleware('permission:manage_permissions')->only(['index', 'store', 'update', 'destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

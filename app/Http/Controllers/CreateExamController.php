@@ -11,9 +11,12 @@ use App\Models\Option;
 use App\Models\Question;
 use DB;
 use Illuminate\Http\Request;
-
-class CreateExamController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+class CreateExamController extends BaseController
 {
+    public function __construct() {
+        $this->middleware('permission:create_exam')->only('store');
+    }
     public function store(CreateExamRequest $request)
     {
         $request->validated();

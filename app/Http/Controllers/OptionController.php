@@ -7,9 +7,12 @@ use App\Models\Exam;
 use App\Models\Option;
 use App\Models\Question;
 use Illuminate\Http\Request;
-
-class OptionController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+class OptionController extends BaseController
 {
+     public function __construct() {
+        $this->middleware('permission:manage_option')->only(['index', 'store', 'show', 'update', 'destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

@@ -14,9 +14,17 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Renderer\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
-class UserController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+class UserController extends BaseController
 {
+    public function __construct() {
+        $this->middleware('permission:create_user')->only(['store']);
+        $this->middleware('permission:edit_user')->only(['update']);
+        $this->middleware('permission:delete_user')->only(['destroy']);
+        $this->middleware('permission:view_profile')->only(['show']);
+        $this->middleware('permission:view_users')->only(['index']);
+        $this->middleware('permission:view_history_result')->only(['history', 'single_exam_history']);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -45,7 +53,7 @@ class UserController extends Controller
             $imagePath = $request->file('image')->store('images', 'public');
             $validated['image'] = $imagePath;
         }
-        
+
         $user = User::create($validated);
 
         return ApiResponseClass::sendResponse(new UserResource($user), 'User created', 201, []);

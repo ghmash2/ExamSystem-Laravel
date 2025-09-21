@@ -8,9 +8,12 @@ use App\Models\AnswerOption;
 use App\Models\Exam;
 use App\Models\UserAnswer;
 use Illuminate\Http\Request;
-
-class ResultController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+class ResultController extends BaseController
 {
+    public function __construct() {
+        $this->middleware('permission:view_result')->only(['evaluate']);
+    }
     public function evaluate(Request $request)
     {
         $validated = $request->validate([

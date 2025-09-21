@@ -1,3 +1,31 @@
+# Permissions
+[
+'launch_exam',
+'create_exam',
+'manage_department',
+'manage_exam',
+'manage_option',
+'manage_question',
+'manage_student',
+'view_result',
+'create_user',
+'edit_user',
+'delete_user',
+'view_profile',
+'view_users',
+'view_history_result',
+'manage_roles',
+'manage_permissions',
+'manage_user_roles',
+'view_user_roles',
+'manage_role_permissions',
+'view_role_permissions'
+]
+
+# API LINK
+<a href="https://documenter.getpostman.com/view/48348131/2sB3HtFH5r">API LINK</a>
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

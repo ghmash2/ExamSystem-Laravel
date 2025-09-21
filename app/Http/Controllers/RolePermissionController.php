@@ -6,9 +6,13 @@ use App\ApiResponseClass;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
-
-class RolePermissionController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+class RolePermissionController extends BaseController
 {
+    public function __construct() {
+          $this->middleware('permission:manage_role_permissions')->only(['assign', 'update', 'delete']);
+          $this->middleware('permission:view_role_permissions')->only(['show']);
+    }
     /**
      * Display the specified role and its permissions.
      */

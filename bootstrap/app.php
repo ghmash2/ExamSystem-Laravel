@@ -2,6 +2,8 @@
 
 use App\ApiResponseClass;
 use App\Http\Middleware\RequestToJson;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Application;
@@ -27,6 +29,24 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->api(RequestToJson::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
+        $exceptions->render(function (AuthenticationException $e, $request) {
+            return ApiResponseClass::sendResponse(
+                [],
+                'Please log in to access this resource.',
+                401,
+                $e->getMessage(),
+                false
+            );
+        });
+        $exceptions->render(function (AuthorizationException $e, $request) {
+            return ApiResponseClass::sendResponse(
+                [],
+                'Please log in to access this resource.',
+                403,
+                $e->getMessage(),
+                false
+            );
+        });
         $exceptions->render(function (ValidationException $e, $request) {
             return ApiResponseClass::sendResponse(
                 [],

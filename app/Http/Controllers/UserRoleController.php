@@ -8,9 +8,13 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
-
-class UserRoleController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+class UserRoleController extends BaseController
 {
+    public function __construct() {
+        $this->middleware('permission:manage_user_roles')->only(['assign', 'update', 'delete']);
+        $this->middleware('permission:view_user_roles')->only(['show']);
+    }
     public function show(User $user)
     {
         return ApiResponseClass::sendResponse(new UserResource($user), "User roles fetched successfully", 200);

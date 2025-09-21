@@ -8,11 +8,15 @@ use App\Http\Resources\ExamResource;
 use App\Http\Resources\LauncedExamResource;
 use App\Models\Exam;
 use App\Models\Question;
+use Faker\Provider\Base;
 use Illuminate\Http\Request;
 use Session;
-
-class ExamController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+class ExamController extends BaseController
 {
+    public function __construct() {
+        $this->middleware('permission:manage_exam')->only(['index', 'store', 'show', 'update', 'destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

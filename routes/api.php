@@ -26,6 +26,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/exams/{exam}/launch', [LauchExamController::class, 'launch'])->name('exam.luanch');
     Route::post('/exams/{exam}/submit', [ResultController::class, 'evaluate'])->name('exam.submit');
     Route::post('/users/{user}', [UserController::class, 'update']);
+    Route::apiResource('/users', UserController::class)->except(['update']);
     Route::get('/history', [UserController::class, 'history']);
     Route::get('/single_exam_history/{user_exam}', [UserController::class, 'single_exam_history']);
     Route::apiResource('/questions', QuestionController::class);
@@ -35,7 +36,6 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
-    Route::apiResource('/users', UserController::class)->except(['update']);
     Route::apiResource('/departments', DepartmentController::class);
     Route::apiResource('/students', StudentController::class);
     Route::post('/exams/add', [CreateExamController::class, 'store']);
