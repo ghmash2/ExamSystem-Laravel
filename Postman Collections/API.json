@@ -937,9 +937,15 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/users/8/roles"
+						"url": "http://localhost:8000/api/users/10/roles"
 					},
 					"response": []
 				},
@@ -950,6 +956,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -961,7 +973,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/users/8/roles"
+						"url": "http://localhost:8000/api/users/10/roles"
 					},
 					"response": []
 				},
@@ -972,6 +984,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -983,7 +1001,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/users/8/roles"
+						"url": "http://localhost:8000/api/users/11/roles"
 					},
 					"response": []
 				},
@@ -1013,6 +1031,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:8000/api/roles"
@@ -1029,14 +1053,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": ""
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
 							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"user\"\r\n}",
+							"raw": "{\r\n    \"name\": \"student\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1058,7 +1082,12 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"name\": \"teacher\",\r\n\"is_active\": 1\r\n}"
+							"raw": "{\r\n\"name\": \"teacher\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": "http://localhost:8000/api/roles/5"
 					},
