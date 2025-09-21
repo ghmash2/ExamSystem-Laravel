@@ -901,7 +901,8 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/exams/9"
+						"url": "http://localhost:8000/api/exams/9",
+						"description": "Summary: Update exam\nEndpoint: PUT {{base_url}}{{api_prefix}}/exams/{id}\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\n- Content-Type: application/json (optional)\nPath params:\n- id (integer) — Exam ID\nQuery params: None\nRequest body (JSON): { \"title\": \"string?\", \"description\": \"string?\", \"duration_minutes\": \"integer?\" }\nSuccess response: 200 OK. Returns updated exam.\nError responses: 401 Unauthenticated, 403 Forbidden, 404 Not Found, 422 Validation error"
 					},
 					"response": [
 						{
@@ -950,6 +951,64 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"id\": 9, \"title\": \"Midterm (Updated)\"}"
+						},
+						{
+							"id": "2f40a732-c8ad-4ab6-b59e-08bdf1ab44ec",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"title\":\"Midterm (Updated)\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/exams/9"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\":9,\"title\":\"Midterm (Updated)\"}"
 						}
 					]
 				},
