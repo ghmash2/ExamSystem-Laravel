@@ -296,6 +296,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -318,6 +324,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -329,7 +341,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/exams/3"
+						"url": "http://localhost:8000/api/exams/9"
 					},
 					"response": []
 				},
@@ -340,9 +352,15 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:8000/api/exams/3"
+						"url": "http://localhost:8000/api/exams/7"
 					},
 					"response": []
 				}
@@ -362,12 +380,12 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "ukVCb4afxpf2rCWkbw4A7id2Wp4IPca7NIIgnzh4ea3127ec"
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
 							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/departments/4"
+						"url": "http://localhost:8000/api/departments/1"
 					},
 					"response": []
 				},
@@ -378,6 +396,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:8000/api/departments"
@@ -391,11 +415,17 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"EEE\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"MAT\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -407,12 +437,18 @@
 					"response": []
 				},
 				{
-					"name": "New Request Copy",
+					"name": "update dept",
 					"id": "e06ad89a-8738-4fcb-a6f8-946815765333",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -424,7 +460,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/departments/4"
+						"url": "http://localhost:8000/api/departments/1"
 					},
 					"response": []
 				},
