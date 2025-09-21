@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ApiResponseClass;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RolePermissionController extends Controller
@@ -13,8 +14,9 @@ class RolePermissionController extends Controller
      */
     public function show(Role $role)
     {
-        return ApiResponseClass::sendResponse($role->load('permissions'), "Role permissions fetched successfully", 200);
+        return ApiResponseClass::sendResponse($role->load('permissions'), 'Role permissions fetched successfully', 200);
     }
+
     /**
      * Assign a single new permission to a role.
      */
@@ -24,11 +26,14 @@ class RolePermissionController extends Controller
             'permission' => 'required|string|exists:permissions,name',
         ]);
 
-        // Spatie's givePermissionTo method attaches the permission to the role
-        $role->givePermissionTo($validated['permission']);
+        $permission = Permission::findByName($validated['permission'], 'api');
+        // dd($role);
+        //dd($permission);
+        $role->givePermissionTo($permission);
 
-        return ApiResponseClass::sendResponse($role->load('permissions'), "Permission assigned successfully", 200);
+        return ApiResponseClass::sendResponse($role->load('permissions'), 'Permission assigned successfully', 200);
     }
+
     /**
      * Update/Sync a role's permissions, replacing existing ones with a new set.
      */
@@ -42,7 +47,7 @@ class RolePermissionController extends Controller
         // syncPermissions replaces all old permissions with the new set
         $role->syncPermissions($validated['permissions']);
 
-        return ApiResponseClass::sendResponse($role->load('permissions'), "Role permissions updated successfully", 201);
+        return ApiResponseClass::sendResponse($role->load('permissions'), 'Role permissions updated successfully', 201);
     }
 
     /**
@@ -53,6 +58,6 @@ class RolePermissionController extends Controller
         // Spatie's revokePermissionTo detaches the specified permission
         $role->revokePermissionTo($permission);
 
-        return ApiResponseClass::sendResponse($role->load('permissions'), "Permission removed successfully", 200);
+        return ApiResponseClass::sendResponse($role->load('permissions'), 'Permission removed successfully', 200);
     }
 }
