@@ -386,7 +386,8 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:8000/api/users/8"
+						"url": "http://localhost:8000/api/users/8",
+						"description": "Summary: Delete user\nEndpoint: DELETE {{base_url}}{{api_prefix}}/users/{id}\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\nPath params:\n- id (integer) — User ID\nQuery params: None\nRequest body: None\nSuccess response: 200 OK. {\"message\":\"Deleted\"}\nError responses: 401 Unauthenticated, 403 Forbidden, 404 Not Found, 500 Server error"
 					},
 					"response": [
 						{
@@ -420,6 +421,49 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"message\": \"Deleted\"}"
+						},
+						{
+							"id": "2682d837-52a7-40ce-9c74-c9d0a939028f",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/users/8"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"message\":\"Deleted\"}"
 						}
 					]
 				},
@@ -2558,7 +2602,8 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:8000/api/userRole/3"
+						"url": "http://localhost:8000/api/userRole/3",
+						"description": "Summary: Delete a user-role assignment by ID\nEndpoint: DELETE {{base_url}}{{api_prefix}}/userRole/{id}\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\nPath params:\n- id (integer) — UserRole assignment ID\nQuery params: None\nRequest body: None\nSuccess response: 200 OK. {\"message\":\"Deleted\"}\nError responses: 401 Unauthenticated, 403 Forbidden, 404 Not Found, 500 Server error"
 					},
 					"response": [
 						{
@@ -2592,6 +2637,49 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"message\": \"Deleted\"}"
+						},
+						{
+							"id": "fd818380-e1d6-41ae-a26f-2e91ffa6e7f3",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/userRole/3"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"message\":\"Deleted\"}"
 						}
 					]
 				}
