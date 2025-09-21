@@ -1129,7 +1129,8 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/departments/1"
+						"url": "http://localhost:8000/api/departments/1",
+						"description": "Summary: Get department by ID\nEndpoint: GET {{base_url}}{{api_prefix}}/departments/{id}\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\nPath params:\n- id (integer) — Department ID\nQuery params: None\nRequest body: None\nSuccess response: 200 OK. Returns department details.\nError responses: 401 Unauthenticated, 403 Forbidden, 404 Not Found"
 					},
 					"response": [
 						{
@@ -1163,6 +1164,49 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"id\": 1, \"name\": \"CSE\"}"
+						},
+						{
+							"id": "154e07cf-2464-4bba-af51-da7ce03dd53a",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/departments/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\":1,\"name\":\"CSE\"}"
 						}
 					]
 				},
@@ -2700,7 +2744,8 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/users/10/roles"
+						"url": "http://localhost:8000/api/users/10/roles",
+						"description": "Summary: Add roles to a user\nEndpoint: POST {{base_url}}{{api_prefix}}/users/{user_id}/roles\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\n- Content-Type: application/json (optional)\nPath params:\n- user_id (integer) — User ID\nQuery params: None\nRequest body (JSON): { \"role_ids\": [\"integer\"] }\nSuccess response: 200 OK. Returns the list/IDs of roles now assigned, e.g. [1,2].\nError responses: 401 Unauthenticated, 403 Forbidden, 404 Not Found, 422 Validation error"
 					},
 					"response": [
 						{
@@ -2749,6 +2794,64 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "[1, 2]"
+						},
+						{
+							"id": "866d3aa9-41ad-474a-9f44-5805fa219089",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"role_ids\":[1,2]}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/users/10/roles"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[1,2]"
 						}
 					]
 				},
@@ -3000,7 +3103,8 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/roles"
+						"url": "http://localhost:8000/api/roles",
+						"description": "Summary: Create role\nEndpoint: POST {{base_url}}{{api_prefix}}/roles\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\n- Content-Type: application/json (optional)\nPath params: None\nQuery params: None\nRequest body (JSON): { \"name\": \"string\", \"description\": \"string?\" }\nSuccess response: 201 Created. Returns the created role.\nError responses: 401 Unauthenticated, 403 Forbidden, 422 Validation error, 500 Server error"
 					},
 					"response": [
 						{
@@ -3049,6 +3153,64 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"id\": 5, \"name\": \"editor\"}"
+						},
+						{
+							"id": "a1d048cf-2231-47f3-b575-be201adaf4c8",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\":\"editor\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/roles"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\":5,\"name\":\"editor\"}"
 						}
 					]
 				},
