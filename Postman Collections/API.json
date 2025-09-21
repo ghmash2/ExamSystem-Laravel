@@ -73,17 +73,17 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "User 11",
+									"value": "User 10",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "user11@gmail.com",
+									"value": "user10@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "username",
-									"value": "user11",
+									"value": "user10",
 									"type": "text"
 								},
 								{
@@ -134,17 +134,17 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "User 8",
+									"value": "User 11",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "user8@gmail.com",
+									"value": "user010@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "username",
-									"value": "user8",
+									"value": "user010",
 									"type": "text"
 								},
 								{
@@ -154,7 +154,7 @@
 								},
 								{
 									"key": "contact",
-									"value": "01222222222",
+									"value": "01222222229",
 									"type": "text"
 								},
 								{
@@ -170,7 +170,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/api/users/8"
+						"url": "http://localhost:8000/api/users/10"
 					},
 					"response": []
 				},
@@ -189,7 +189,7 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:8000/api/users/9"
+						"url": "http://localhost:8000/api/users/8"
 					},
 					"response": []
 				},
