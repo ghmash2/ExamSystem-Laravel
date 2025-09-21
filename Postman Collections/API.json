@@ -264,7 +264,8 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/api/users"
+						"url": "http://localhost:8000/api/users",
+						"description": "Summary: Create user\nEndpoint: POST {{base_url}}{{api_prefix}}/users\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\n- Content-Type: application/json (optional)\nPath params: None\nQuery params: None\nRequest body (JSON): { \"name\": \"string\", \"email\": \"string\", \"password\": \"string\", \"password_confirmation\": \"string\" }\nSuccess response: 201 Created. Returns created user.\nError responses: 401 Unauthenticated, 403 Forbidden, 422 Validation error"
 					},
 					"response": [
 						{
@@ -308,6 +309,59 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"id\": 10, \"name\": \"Jane Doe\", \"email\": \"jane@example.com\"}"
+						},
+						{
+							"id": "44e21990-2936-4a6b-89ef-2f20a599526d",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\":\"Jane Doe\",\"email\":\"jane@example.com\",\"password\":\"secret\",\"password_confirmation\":\"secret\"}"
+								},
+								"url": "http://localhost:8000/api/users"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\":10,\"name\":\"Jane Doe\",\"email\":\"jane@example.com\"}"
 						}
 					]
 				},
@@ -1717,7 +1771,8 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/departments/1"
+						"url": "http://localhost:8000/api/departments/1",
+						"description": "Summary: Update department\nEndpoint: PUT {{base_url}}{{api_prefix}}/departments/{id}\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\n- Content-Type: application/json (optional)\nPath params:\n- id (integer) — Department ID\nQuery params: None\nRequest body (JSON): { \"name\": \"string?\", \"code\": \"string?\" }\nSuccess response: 200 OK. Returns updated department.\nError responses: 401 Unauthenticated, 403 Forbidden, 404 Not Found, 422 Validation error"
 					},
 					"response": [
 						{
@@ -1766,6 +1821,64 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"id\": 1, \"name\": \"CSE Updated\"}"
+						},
+						{
+							"id": "5ec7421f-eb59-481d-aebf-30647f0eb0e5",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\":\"CSE Updated\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/departments/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\":1,\"name\":\"CSE Updated\"}"
 						}
 					]
 				},
@@ -1886,7 +1999,8 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/students"
+						"url": "http://localhost:8000/api/students",
+						"description": "Summary: List students\nEndpoint: GET {{base_url}}{{api_prefix}}/students\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\nPath params: None\nQuery params: Optional pagination/filtering parameters\nRequest body: None\nSuccess response: 200 OK. Returns an array of students.\nError responses: 401 Unauthenticated, 403 Forbidden, 404 Not Found"
 					},
 					"response": [
 						{
@@ -1920,6 +2034,49 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "[{\"id\":1, \"name\":\"Student A\", \"department_id\":1}]"
+						},
+						{
+							"id": "7f406ac4-b35d-40f0-a973-95b5d603e680",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/students"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\":1,\"name\":\"Student A\",\"department_id\":1}]"
 						}
 					]
 				},
@@ -2313,7 +2470,8 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/students/400"
+						"url": "http://localhost:8000/api/students/400",
+						"description": "Summary: Delete student\nEndpoint: DELETE {{base_url}}{{api_prefix}}/students/{id}\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\nPath params:\n- id (integer) — Student ID\nQuery params: None\nRequest body: None\nSuccess response: 200 OK. {\"message\":\"Deleted\"}\nError responses: 401 Unauthenticated, 403 Forbidden, 404 Not Found"
 					},
 					"response": [
 						{
@@ -2352,6 +2510,54 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"message\": \"Deleted\"}"
+						},
+						{
+							"id": "ae179604-ca02-49d1-93af-48ae903c3dcd",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"name\": \"CSE\",\r\n        \"id_no\": \"113\",\r\n        \"department_id\": \"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/students/400"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"message\":\"Deleted\"}"
 						}
 					]
 				}
@@ -2644,7 +2850,8 @@
 									"value": "1"
 								}
 							]
-						}
+						},
+						"description": "Summary: Get result for a single exam attempt\nEndpoint: GET {{base_url}}{{api_prefix}}/single_exam_history/{attempt_id}\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\nPath params:\n- attempt_id (integer)\nQuery params:\n- user_id (integer)\n- exam_id (integer)\nRequest body: None\nSuccess response: 200 OK. Returns attempt details.\nError responses: 401 Unauthenticated, 403 Forbidden, 404 Not Found"
 					},
 					"response": [
 						{
@@ -2702,6 +2909,78 @@
 									"value": "application/json",
 									"description": "",
 									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"attempt_id\":4,\"user_id\":1,\"exam_id\":1,\"score\":8,\"details\":[]}"
+						},
+						{
+							"id": "45671806-64f3-411a-8832-06c32720ba7b",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"exam_id\": 1,\r\n    \"user_id\": 1,\r\n    \"join_at\": \"2025-09-15 09:00:00\",\r\n    \"end_at\": \"2025-09-15 09:30:10\",\r\n    \"answers\": [\r\n        {\r\n            \"question_id\": 4,\r\n            \"answer_at\": 2\r\n        }   \r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/single_exam_history/4?user_id=1&exam_id=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"single_exam_history",
+										"4"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "exam_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
 								}
 							],
 							"cookie": [],
@@ -2875,7 +3154,8 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/login"
+						"url": "http://localhost:8000/api/login",
+						"description": "Summary: Login to obtain a token\nEndpoint: POST {{base_url}}{{api_prefix}}/login\nHeaders:\n- Accept: application/json (optional)\n- Content-Type: application/json (optional)\nPath params: None\nQuery params: None\nRequest body (JSON): { \"email\": \"string\", \"password\": \"string\" }\nSuccess response: 200 OK. {\"token\":\"<JWT or token>\"}\nNotes: Use token with Authorization: Bearer <token>"
 					},
 					"response": [
 						{
@@ -2924,6 +3204,53 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"token\": \"<JWT or token>\"}"
+						},
+						{
+							"id": "108fa6bc-0be7-4dd7-b0db-2258a5ec577b",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"email\":\"user@example.com\",\"password\":\"secret\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"token\":\"<JWT or token>\"}"
 						}
 					]
 				},
@@ -3249,7 +3576,8 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/permissions"
+						"url": "http://localhost:8000/api/permissions",
+						"description": "Summary: Create permission\nEndpoint: POST {{base_url}}{{api_prefix}}/permissions\nHeaders:\n- Authorization: Bearer <token> (optional)\n- Accept: application/json (optional)\n- Content-Type: application/json (optional)\nPath params: None\nQuery params: None\nRequest body (JSON): { \"key\": \"string\", \"name\": \"string?\", \"description\": \"string?\" }\nSuccess response: 201 Created. Returns created permission.\nError responses: 401 Unauthenticated, 403 Forbidden, 422 Validation error"
 					},
 					"response": [
 						{
@@ -3298,6 +3626,64 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\"id\": 1, \"key\": \"result_view\"}"
+						},
+						{
+							"id": "73ede5a6-c6b7-4a2d-84ec-84f069a328b4",
+							"name": "Standard example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"key\":\"result_view\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/permissions"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"description": "",
+									"enabled": false
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\":1,\"key\":\"result_view\"}"
 						}
 					]
 				},
