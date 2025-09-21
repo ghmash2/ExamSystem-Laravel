@@ -952,7 +952,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/roles/"
+						"url": "http://localhost:8000/api/roles/1/permissions"
 					},
 					"response": []
 				},
@@ -967,14 +967,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"role_id\" : 1,\r\n    \"permission_id\": 7\r\n}",
+							"raw": "{\r\n    \"permission\": \"post_add\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/rolePermission"
+						"url": "http://localhost:8000/api/roles/1/permissions"
 					},
 					"response": []
 				},
