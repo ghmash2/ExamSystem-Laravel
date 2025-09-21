@@ -78,7 +78,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/users/1"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "e835c5c8-14b4-4170-8fec-905c07c31fac",
+							"name": "200 OK - Get user by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/users/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\": 1, \"name\": \"John Doe\", \"email\": \"john@example.com\"}"
+						}
+					]
 				},
 				{
 					"name": "Create a new user",
@@ -145,7 +178,50 @@
 						},
 						"url": "http://localhost:8000/api/users"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "93a6c5fd-7dea-4160-97d5-22c21ca13ebb",
+							"name": "201 Created - Create user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\":\"Jane Doe\",\"email\":\"jane@example.com\",\"password\":\"secret\",\"password_confirmation\":\"secret\"}"
+								},
+								"url": "http://localhost:8000/api/users"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\": 10, \"name\": \"Jane Doe\", \"email\": \"jane@example.com\"}"
+						}
+					]
 				},
 				{
 					"name": "Update a user",
@@ -206,7 +282,50 @@
 						},
 						"url": "http://localhost:8000/api/users/10"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "b9c7800e-f9d6-489a-8587-5500c58556dd",
+							"name": "200 OK - Update user (POST)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\":\"Jane Updated\"}"
+								},
+								"url": "http://localhost:8000/api/users/10"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\": 10, \"name\": \"Jane Updated\", \"email\": \"jane@example.com\"}"
+						}
+					]
 				},
 				{
 					"name": "Delete a user",
@@ -225,7 +344,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/users/8"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "7addb741-777e-4d84-8ff4-81acdcab7d13",
+							"name": "200 OK - Delete user",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/users/8"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"message\": \"Deleted\"}"
+						}
+					]
 				},
 				{
 					"name": "Exams list a user attempted",
@@ -302,7 +454,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/exams"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "50ec5ca6-a61e-4be3-9b9e-45e2fa30965d",
+							"name": "200 OK - List exams",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/exams"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\": 1, \"title\": \"Midterm\"}]"
+						}
+					]
 				},
 				{
 					"name": "Show exam",
@@ -382,7 +567,55 @@
 						},
 						"url": "http://localhost:8000/api/exams"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "cf514b53-7965-41e0-8d90-f9f4cfcc5601",
+							"name": "201 Created - Create exam",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"title\":\"Midterm\",\"duration_minutes\":60,\"questions\":[{\"text\":\"2+2?\",\"options\":[\"1\",\"2\",\"3\",\"4\"],\"correct_option_index\":3}]}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/exams"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\": 9, \"title\": \"Midterm\"}"
+						}
+					]
 				},
 				{
 					"name": "Update exam",
@@ -535,7 +768,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/departments/1"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "2c5a8459-9480-485c-9414-fc4c57383cfd",
+							"name": "200 OK - Get department by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/departments/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\": 1, \"name\": \"CSE\"}"
+						}
+					]
 				},
 				{
 					"name": "Find Dept Copy",
@@ -554,7 +820,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/departments"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "d88090db-01cc-4414-8926-fdf4d8a0a656",
+							"name": "200 OK - List departments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/departments"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\": 1, \"name\": \"CSE\"}]"
+						}
+					]
 				},
 				{
 					"name": "Create Dept",
@@ -582,7 +881,55 @@
 						},
 						"url": "http://localhost:8000/api/departments"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "99c454c9-ffd5-4cb7-845d-ee74de577f8f",
+							"name": "201 Created - Create department",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\":\"EEE\",\"code\":\"EEE\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/departments"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\": 5, \"name\": \"EEE\"}"
+						}
+					]
 				},
 				{
 					"name": "update dept",
@@ -629,7 +976,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/departments/5"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "e4673906-7e33-44ee-a8e2-cd5cdfe67e8f",
+							"name": "200 OK - Delete department",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/departments/5"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"message\": \"Deleted\"}"
+						}
+					]
 				}
 			],
 			"id": "bbdcc94b-3adf-4fa8-96a8-ecf1609c5dbc"
@@ -734,7 +1114,55 @@
 						},
 						"url": "http://localhost:8000/api/students"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "5b5bae12-0bdd-443b-8b7a-6b9db019ce85",
+							"name": "201 Created - Create student",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\":\"Student B\",\"email\":\"student.b@example.com\",\"department_id\":2}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/students"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\": 6, \"name\": \"Student B\", \"department_id\": 2}"
+						}
+					]
 				},
 				{
 					"name": "update student",
@@ -815,7 +1243,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/exams/1/launch"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "44951a16-39f1-4ceb-826e-d2e57698adac",
+							"name": "200 OK - Start exam",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/exams/1/launch"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"exam_id\": 1, \"session_id\": \"abc123\", \"expires_at\": \"2025-12-01T10:00:00Z\"}"
+						}
+					]
 				},
 				{
 					"name": "Add New Exam",
@@ -927,7 +1388,55 @@
 						},
 						"url": "http://localhost:8000/api/exams/1/submit"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "7144da24-3dc3-4027-802d-d686487dbb11",
+							"name": "200 OK - Submit exam",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"answers\":[{\"question_id\":101,\"option_index\":2}]}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/exams/1/submit"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"exam_id\": 1, \"score\": 8, \"max_score\": 10}"
+						}
+					]
 				}
 			],
 			"id": "e141667f-0215-4e13-89fc-1ee6b87bedfa"
@@ -980,7 +1489,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/logout"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "8a3fe78c-e1f0-4ce5-825b-858c256fc2a6",
+							"name": "200 OK - Logout",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/logout"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"message\": \"Logged out\"}"
+						}
+					]
 				},
 				{
 					"name": "logout all",
@@ -999,7 +1541,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/logoutAll"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "0479cbd0-32b1-4dea-98db-ba8d12dc1ab7",
+							"name": "200 OK - Logout from all sessions",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/logoutAll"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"message\": \"Logged out from all sessions\"}"
+						}
+					]
 				}
 			],
 			"id": "a77dc7e3-1e09-4375-8b6e-75fcfa8289be"
@@ -1028,7 +1603,40 @@
 						},
 						"url": "http://localhost:8000/api/permissions"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "a2d71f72-a080-470d-9644-00d7875cea47",
+							"name": "200 OK - List permissions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/permissions"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\":1, \"key\":\"result_edit\", \"name\":\"Result Edit\"}]"
+						}
+					]
 				},
 				{
 					"name": "add permission",
@@ -1161,7 +1769,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/users/10/roles"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "ebc96860-3b45-4ac2-8461-e415bf7db902",
+							"name": "200 OK - View user roles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/users/10/roles"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\"admin\", \"student\"]"
+						}
+					]
 				},
 				{
 					"name": "add UserRole",
@@ -1189,7 +1830,55 @@
 						},
 						"url": "http://localhost:8000/api/users/10/roles"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "3e4df113-6052-44b3-92ff-5be4251991cd",
+							"name": "200 OK - Add roles to user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"role_ids\":[1,2]}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/users/10/roles"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[1, 2]"
+						}
+					]
 				},
 				{
 					"name": "update userRole",
@@ -1217,7 +1906,55 @@
 						},
 						"url": "http://localhost:8000/api/users/11/roles"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "23fd8768-4eaf-4001-abbb-121964b2117f",
+							"name": "200 OK - Replace user roles",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"role_ids\":[2]}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/users/11/roles"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[2]"
+						}
+					]
 				},
 				{
 					"name": "delete userRole",
@@ -1316,7 +2053,55 @@
 						},
 						"url": "http://localhost:8000/api/roles"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "6973826b-2142-409f-aaa6-894551de90e7",
+							"name": "201 Created - Create role",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\":\"editor\",\"description\":\"Can edit content\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/roles"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\": 5, \"name\": \"editor\"}"
+						}
+					]
 				},
 				{
 					"name": "update role",
@@ -1338,7 +2123,55 @@
 						},
 						"url": "http://localhost:8000/api/roles/5"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "15e4d2da-46e8-4759-ae38-815d899bf6ab",
+							"name": "200 OK - Update role",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\":\"editor\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/roles/5"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\": 5, \"name\": \"editor\"}"
+						}
+					]
 				},
 				{
 					"name": "delete role",
@@ -1382,7 +2215,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/roles/2/permissions"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "716eb1dd-1069-4ae9-8e4e-ee84a5444942",
+							"name": "200 OK - View role permissions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/roles/2/permissions"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\"result_edit\", \"result_view\"]"
+						}
+					]
 				},
 				{
 					"name": "add role permission",
@@ -1410,7 +2276,55 @@
 						},
 						"url": "http://localhost:8000/api/roles/2/permissions"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "8d91dc4c-3fde-4b5f-a963-9bcaa4e1a701",
+							"name": "200 OK - Add role permissions",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"permissions\":[\"result_edit\",\"result_view\"]}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/api/roles/2/permissions"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								},
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\"result_edit\", \"result_view\"]"
+						}
+					]
 				},
 				{
 					"name": "update role permission",
