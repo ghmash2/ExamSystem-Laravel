@@ -121,6 +121,12 @@
 						"disabledSystemHeaders": {}
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "o6n0FyrJ2CUfilb3Cbbm2eQbfOZvyztTvaFRWcKg2753de68"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -128,17 +134,17 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "User 3",
+									"value": "User 8",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "user3",
+									"value": "user8@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "username",
-									"value": "user3",
+									"value": "user8",
 									"type": "text"
 								},
 								{
@@ -164,7 +170,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/api/users/4"
+						"url": "http://localhost:8000/api/users/8"
 					},
 					"response": []
 				},
@@ -175,9 +181,15 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "o6n0FyrJ2CUfilb3Cbbm2eQbfOZvyztTvaFRWcKg2753de68"
+							}
+						},
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:8000/api/users/2"
+						"url": "http://localhost:8000/api/users/9"
 					},
 					"response": []
 				},
@@ -188,6 +200,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "o6n0FyrJ2CUfilb3Cbbm2eQbfOZvyztTvaFRWcKg2753de68"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -230,22 +248,6 @@
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:8000/storage/images/naswniwB4SqYFN01ZmuM0phcCdOvFoJKW7n0kE5T.png"
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:8000/storage/images/MH2MxcJgm7Fx0H6wcwQnWPdAQQXHKPtwKDsaGZHB.png",
-					"id": "e3c589e1-fa1b-48dc-9163-bf92387c0ef7",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": "http://localhost:8000/storage/images/MH2MxcJgm7Fx0H6wcwQnWPdAQQXHKPtwKDsaGZHB.png"
 					},
 					"response": []
 				}
