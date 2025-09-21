@@ -643,6 +643,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -674,7 +680,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "sI3hyeAgYIpUQ9FGifeSvHmafEbTBQWOm0zWjKRxe34dd259"
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
 							}
 						},
 						"method": "GET",
@@ -721,6 +727,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -824,7 +836,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": ""
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
 							}
 						},
 						"method": "GET",
@@ -844,11 +856,17 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"result_view\"\r\n}",
+							"raw": "{\r\n    \"name\": \"result_edit\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -866,11 +884,17 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"post_add\"\r\n}",
+							"raw": "{\r\n    \"name\": \"post_add_up\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -888,6 +912,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": "http://localhost:8000/api/permissions/1"
