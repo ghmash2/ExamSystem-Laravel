@@ -15,6 +15,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "o6n0FyrJ2CUfilb3Cbbm2eQbfOZvyztTvaFRWcKg2753de68"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:8000/api/users"
@@ -31,7 +37,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "ukVCb4afxpf2rCWkbw4A7id2Wp4IPca7NIIgnzh4ea3127ec"
+								"token": "o6n0FyrJ2CUfilb3Cbbm2eQbfOZvyztTvaFRWcKg2753de68"
 							}
 						},
 						"method": "GET",
@@ -48,6 +54,12 @@
 						"disabledSystemHeaders": {}
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "o6n0FyrJ2CUfilb3Cbbm2eQbfOZvyztTvaFRWcKg2753de68"
+							}
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -61,17 +73,17 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "User 2",
+									"value": "User 11",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "user2@gmail.com",
+									"value": "user11@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "username",
-									"value": "user2",
+									"value": "user11",
 									"type": "text"
 								},
 								{
@@ -667,7 +679,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"user1@gmail.com\",\r\n    \"password\": \"12345\",\r\n    \"device\": \"Android A34\"\r\n}",
+							"raw": "{\r\n    \"email\": \"user3@gmail.com\",\r\n    \"password\": \"12345\",\r\n    \"device\": \"Android A34\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
