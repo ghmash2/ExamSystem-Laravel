@@ -3033,7 +3033,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "4de5c982-b386-460b-9c02-687e4c66d769",
+				"id": "c514f3db-85b7-4e13-9e14-92b1a6add363",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -3044,7 +3044,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "caf8631a-94a8-4402-ae61-c61bde1c0e6c",
+				"id": "5ed0cc33-f7f5-45c0-a7cd-4ab02b58b2ea",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -3056,13 +3056,11 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "http://localhost:8000",
-			"type": "default"
+			"value": "http://localhost:8000"
 		},
 		{
 			"key": "api_prefix",
-			"value": "/api",
-			"type": "default"
+			"value": "/api"
 		}
 	]
 }
