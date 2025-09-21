@@ -967,14 +967,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"permission\": \"post_add\"\r\n}",
+							"raw": "{\r\n    \"permission\": \"result_view\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/roles/1/permissions"
+						"url": "http://localhost:8000/api/roles/2/permissions"
 					},
 					"response": []
 				},
