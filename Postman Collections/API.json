@@ -288,7 +288,40 @@
 						"header": [],
 						"url": "http://localhost:8000/api/exams/1"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "621bea4d-336b-4055-b02f-e7459c5a3594",
+							"name": "200 OK - Get exam by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8000/api/exams/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"description": "",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"id\": 1, \"title\": \"Midterm\", \"description\": \"...\", \"duration_minutes\": 60}"
+						}
+					]
 				},
 				{
 					"name": "Create Exam",
