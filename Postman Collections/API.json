@@ -277,9 +277,15 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MV2nwexjKWQrOf4mWa87UJTOy7v5nJOghOnce5rwf88df4cf"
+							}
+						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/exams/3"
+						"url": "http://localhost:8000/api/exams/1"
 					},
 					"response": []
 				},
