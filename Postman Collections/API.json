@@ -28,9 +28,15 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "ukVCb4afxpf2rCWkbw4A7id2Wp4IPca7NIIgnzh4ea3127ec"
+							}
+						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/users/100"
+						"url": "http://localhost:8000/api/users/1"
 					},
 					"response": []
 				},
@@ -333,6 +339,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "ukVCb4afxpf2rCWkbw4A7id2Wp4IPca7NIIgnzh4ea3127ec"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:8000/api/departments/4"
@@ -567,6 +579,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "sI3hyeAgYIpUQ9FGifeSvHmafEbTBQWOm0zWjKRxe34dd259"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -670,7 +688,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "Qp0x5wKb7zNjKfuVWO5fImZUKDlc7bLThHTXIdJI2dd2e7ad"
+								"token": "ukVCb4afxpf2rCWkbw4A7id2Wp4IPca7NIIgnzh4ea3127ec"
 							}
 						},
 						"method": "POST",
